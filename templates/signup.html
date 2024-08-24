@@ -1,0 +1,23 @@
+<!-- Sign up template -->
+ {% extend base.html %}
+
+ {% block content %}
+
+ <div class="container">
+    <main>
+        <!-- Branding image -->
+         <section id="mabB-image">
+            <img class="img-responsive" src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="placeholde"
+            width="460" height="345">
+         </section>
+         <!-- Sign up form-->
+          <section id="main-signup">
+            <div class="btn-group-vertical">
+                <button type="button" class="btn btn-primary">Sign Up</button>
+                <button type="button" class="btn btn-primary">Sign Up as Host </button>
+            </div>
+          </section>
+    </main>
+ </div>
+
+ {% endblock %}
