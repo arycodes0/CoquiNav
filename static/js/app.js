@@ -13,3 +13,32 @@ function getDynamicEndpoint(event) {
     const apiBaseUrl = window.location.origin;
     return `${apiBaseUrl}/${endpointPath}`;
   }
+//Sign up send input
+
+$("#signupButton").on("submit", function(event){
+  eventpreventDefault();
+  //Gather user data
+  var signupForm = {
+    firstName: $('#first-name').val(),
+    lastName: $('#last-name').val(),
+    email: $('#email').val(),
+    password: $('#pwd').val(),
+    month: $('#month').val(),
+    day: $('#day').val(),
+    year: $('#year').val()
+  };
+
+  //Validate data againts User database
+  var validateForm = validateUser()
+  if (signupForm) == validateForm{
+    try:
+      $('#dialog').dialog({
+        autoOpen: false,
+        modal: true,
+        position: {
+          my: "center",
+          at: "center"
+        }
+      })
+  }
+})
