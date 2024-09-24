@@ -2,8 +2,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
+<div class="landingPage-container">
    <main>
+    <!-- Branding image -->
+     <section id="mapB-image">
+        <img class="img-responsive" id="indexMap" src="{{ url_for('static', filename='images/lowpoly_prMap.png') }}" alt="placeholde">
+    </section> 
+
     <section id="call_to_action">
     <h1>Your Community, Your Events!</h1>
     <h3>
@@ -12,8 +17,9 @@
     </h3>
 </section>
 <div id="signup-container">
-    <button type="button">Join Our Community!</button>
+    <button type="button" id="joinusButton">Join Our Community!</button>
 </div>
+
 </main>
 </div>
 

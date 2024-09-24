@@ -61,52 +61,98 @@ Styling for COQUI NAV
  }
 
 /* Style for the hamburger icon */
-.menu-icon {
+
+#menuToggle {
+    position: relative;
+    z-index: 1;
+    padding-left: 10px;
+   }
+
+#menuToggle input {
+    position: absolute;
+    width:40px;
     cursor: pointer;
-    display: inline-block;
-    margin: 20px;
-}
-
-.menu-icon .bar {
-    width: 35px;
-    height: 5px;
-    background-color: black;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-/* Style for the vertical nav menu */
-.nav-menu {
-    width: 200px;
-    background-color: #333;
-    position: fixed;
-    top: 0;
-    left: -200px;
-    height: 100%;
-    transition: 0.3s;
-}
-
-.nav-menu ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.nav-menu ul li {
-    text-align: left;
-    padding: 15px;
-}
-
-.nav-menu ul li a {
-    color: white;
-    text-decoration: none;
+    opacity: 0; 
+    z-index: 2;
+    -webkit-touch-callout: none;
+  }
+  #menuToggle span {
     display: block;
+    width: 33px;
+    height: 4px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 3px;
+    z-index: 1;
+  }
+  #menuToggle span {
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+    transform-origin: 4px 0px;
+    }
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
 }
 
-.nav-menu ul li a:hover {
-    background-color: var(--color-text);
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
 }
 
-#signup-container {
+#menuToggle input:checked ~ span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-2px, -1px);
+    background: #232323;
+}
+#menuToggle input:checked ~ span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+#menuToggle input:checked ~ span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+/* Styling for menu options inside hambuger stack*/
+#menu {
+    position: absolute;
+    left: -300px;
+    top: 80px;
+    width: 200px; 
+    margin: -100px 0 0 -50px;
+    padding: 50px;
+    padding-top: 125px;
+    background: var(--color-primary);
+    list-style-type: none;
+    -webkit-font-smoothing: antialiased;
+    
+    transition: left 0.5s;
+    border-radius: 40px;
+  }
+
+  #menu li a {
+    text-decoration: none;
+    color: var(--color-header);
+    display: block;
+    padding: 10px 20px;
+  }
+
+  #menu li {
+    border:solid var(--color-header);
+    background-color: var(--color-header);
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    border-radius: 50px;
+    text-align: center;
+    padding-bottom: 20px;
+
+  }
+
+  #menuToggle input:checked ~ ul {
+    left:40px;
+  }
+
+/* Styling for sign up container */
+#joinusButton {
     background-color: var(--color-header);
     text-align: center;
     border: none;
@@ -116,4 +162,32 @@ Styling for COQUI NAV
     margin: var(--header-button-margins);
     cursor: pointer;
     border-radius: 50px;
+}
+#joinusButton:hover {
+    background-color: var(--color-hover);
+}
+/* Landing Page Styling */
+
+#landingPage-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+/* Index img container */
+#mapB-image {
+    width: 50%;
+}
+
+/* Index Call to Action */
+#call_to_action {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    color: var(--color-text);
+    font: var(--font-family-base);
+    font-size: medium;
+    z-index: 2;
+    padding: 10px;
+    border: none;
 }

@@ -1,16 +1,5 @@
 // File contains all main app scripts for CoquiNav website
 
-// Hambuger menu
-function toggleMenu() {
-  var navMenu = document.getElementById('navMenu');
-  if (navMenu.style.display === 'block') {
-      navMenu.style.display = 'none';
-  } else {
-      navMenu.style.display = 'block';
-  }
-}
-
-
 //Signup button onclick
 
 //Sign up send input
