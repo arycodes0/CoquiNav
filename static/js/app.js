@@ -1,17 +1,17 @@
 // File contains all main app scripts for CoquiNav website
-function getDynamicEndpoint(event) {
-    // Function to get endpoints dynamically
-    const button = event.target;
-    const endpointPath = button.getAttribute('data-endpoint');
-    console.log('Retrieved endpoint:', endpointPath);
-    return endpointPath;
+
+// Hambuger menu
+function toggleMenu() {
+  var navMenu = document.getElementById('navMenu');
+  if (navMenu.style.display === 'block') {
+      navMenu.style.display = 'none';
+  } else {
+      navMenu.style.display = 'block';
   }
-  
-function getApiUrl(endpointPath) {
-  // Function to dynamically get the API endpoint url
-  const apiBaseUrl = window.location.origin;
-  return `${apiBaseUrl}/${endpointPath}`;
 }
+
+
+//Signup button onclick
 
 //Sign up send input
 async function signupFormSubmit() {
@@ -46,15 +46,40 @@ async function signupFormSubmit() {
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('DOM fully loaded and parsed.');
 
-  const pathname = window.location.pathname;
-
-    // Event listener to handle button clicks dynamically
+    // Event listener to handle index Join Us button
     document.addEventListener('click', async (event) => {
-      if (event.target.classList.contains('button')) {
-        const endpointPath = getDynamicEndpoint(event);
-        if (endpointPath) {
-          await handleFetchAndDisplay(endpointPath);
+      try {
+        if (event.target.classList.contains('signup-container')) {
+          location.href = window.location.origin + '/signup.html';
         }
       }
-    })
-  }
+      catch (error) {
+        console.error('Signup page could not be fetched.')
+      }
+    });
+
+    // Event listener to handle log in button
+    document.addEventListener('click', async (event) => {
+      try {
+        if (event.target.classList.contains('loginButton')) {
+          location.href = window.location.origin + '/login.html';
+        }
+      }
+      catch (error) {
+        console.error('Log In redirect could not be fetched.')
+      }
+    });
+
+    // Event listener to handle sign up button
+    document.addEventListener('click', async (event) => {
+      try {
+        if (event.target.classList.contains('signupButton')) {
+          location.href = window.location.origin + '/signup.html';
+        }
+      }
+      catch (error) {
+        console.error('Sign Up redirect could not be fetched.')
+      }
+  });
+  
+}

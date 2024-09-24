@@ -1,0 +1,119 @@
+/*
+Styling for COQUI NAV
+*/
+ * {
+    box-sizing: border-box;
+ }
+
+ html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+    position: relative;
+    height: 100%;
+    margin: auto;
+ }
+
+ /* Custom Properties */
+ :root {
+    /* Colors */
+    --color-header: #9CBA9D;
+    --color-primary: #F2F7F4;
+    --color-footer: #9CBA9D;
+    --color-text: #1E1E1E;
+    --color-hover: #799a9c;
+    --color-button-bg: #F2F7F4;
+
+    /* Fonts */
+    --font-family-title: 'Rowdies', Helvetica, Arial, sans-serif;
+    --font-family-base: 'Inter', Helvetica, Arial;
+
+    /* Padding and Margins */
+    --header-button-padding: 8px 35px;
+    --header-button-margins: 5px 10px;
+ }
+
+ /* Header and Footer */
+ header {
+    background-color: var(--color-header);
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+ }
+
+ #eventAdder, #loginButton, #signupButton {
+    background-color: var(--color-button-bg);
+    text-align: center;
+    border: none;
+    padding: var(--header-button-padding);
+    text-decoration: none;
+    font-size: medium;
+    margin: var(--header-button-margins);
+    cursor: pointer;
+    border-radius: 50px;
+ }
+
+ #eventAdder:hover, #loginButton:hover, #signupButton:hover {
+    background-color: var(--color-hover);
+ }
+
+/* Style for the hamburger icon */
+.menu-icon {
+    cursor: pointer;
+    display: inline-block;
+    margin: 20px;
+}
+
+.menu-icon .bar {
+    width: 35px;
+    height: 5px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Style for the vertical nav menu */
+.nav-menu {
+    width: 200px;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    left: -200px;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.nav-menu ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    text-align: left;
+    padding: 15px;
+}
+
+.nav-menu ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+}
+
+.nav-menu ul li a:hover {
+    background-color: var(--color-text);
+}
+
+#signup-container {
+    background-color: var(--color-header);
+    text-align: center;
+    border: none;
+    padding: var(--header-button-padding);
+    text-decoration: none;
+    font-size: medium;
+    margin: var(--header-button-margins);
+    cursor: pointer;
+    border-radius: 50px;
+}
