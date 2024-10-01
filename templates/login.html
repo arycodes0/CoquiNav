@@ -24,10 +24,19 @@
                             <li><label for="pwd">Password:</label></li>
                             <li><input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd"></li>
                         </div>
-                        <div class="checkbox">
-                            <label><input type="checkbox" name="remember">Remember me</label>
-                        </div>
                         <button type="submit" class="btn btn-default">Submit</button>
+                        <div id="missingInfo" class="modal">
+                            <div class="modal-content">
+                                <span class="close-btn">X</span>
+                                <p>Email or password can not be empty.</p>
+                            </div>
+                        <div id="wrongInfo" class="modal">
+                            <div class="modal-content">
+                                <span class="close-btn">X</span>
+                                <p>Email or password do not match.</p>
+                            </div>
+                        </div>
+                        </div>
                     </form>
                 </ul>
               </div>

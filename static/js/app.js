@@ -15,7 +15,7 @@ async function signupFormSubmit() {
     //Send user data to backend
     //Route needed
   
-    const dataValidation = await()//fill when above is completed
+    const dataValidation = await verifyUserData()//fill when above is completed
     if (dataValidation.ok) {
       //Redirect user to homepage
       location.href = '/home.html';
@@ -59,6 +59,51 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     });
 
+    // Event listener to handle log in form submit
+    let loginForm = document.getElementById("loginButton");
+    loginForm.addEventListener('submit', (e) => {e.preventDefault();
+      const email = document.getElementById('email');
+      const password = document.getElementById('pwd');
+
+      //Check if fields are empty
+      if (email.value == ''|| password.value == '') {
+        // Alert moodal for empty fields
+        let warningAlert = document.getElementById('missingInfo');
+        warningAlert.style.display = 'flex';
+        // Close button for modal
+        let closeButton = document.querySelector('.close-btn');
+        closeButton.addEventListener('click', function() {
+          warningAlert.style.display = 'none;'
+        });
+        return;
+        }
+
+        // Verify user info
+        try {
+          const verifyData = verifyUserData()
+        
+        if (!verifyData.ok) {
+          throw new Error('Login failed. Check your credentials.')
+        }
+        const data = verifyData.json()
+        // If info is correct, redirect user to homepage
+        window.location.href = '/home.html'
+      }
+      catch (error) {
+        console.error("An error occurred during login")
+        // Alert modal for wrong user info
+        let errorAlert = document.getElementById('wrongInfo');
+        errorAlert.textContent = error.message;
+        errorAlert.style.display = 'flex';
+
+        let closeButton = document.querySelector('.close-btn');
+        closeButton.addEventListener('click', function() {
+          errorAlert.style.display = 'none';
+        });
+        return;
+      }
+      });
+
     // Event listener to handle sign up button
     document.addEventListener('click', async (event) => {
       try {
@@ -71,4 +116,4 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   });
   
-}
+})

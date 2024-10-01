@@ -2,3 +2,4 @@ env
 __pycache__
 config
 coquinav_firebase_config.json
+.DS_Store
