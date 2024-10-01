@@ -20,12 +20,14 @@ Styling for COQUI NAV
     --header-button-padding: 8px 35px;
     --header-button-margins: 5px 10px;
 }
-body {
+body, html {
     margin: 0;
     padding: 0;
     width: 100vw;
     min-height: 100vh;
+    box-sizing: border-box;
 }
+
 /* Header and Footer */
 header {
     background-color: var(--color-header);
@@ -36,18 +38,112 @@ header {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
+    height: 4rem;
+    z-index: 1001;
+    position: relative;
+    border-bottom: 1px solid #eee;
 }
+
+.footer {
+    background-color: var(--color-header);
+    padding: 0;
+    display: flex;
+    justify-content: center;  /* Centers the content horizontally */
+    align-items: center;      /* Centers the content vertically */
+    width: 100%;
+    margin: 0;
+    box-sizing: border-box;
+    height: 100px;            /* Adjust the height to fit your content */
+    z-index: 1001;
+    position: relative;       /* Ensure the footer stays within its position */
+    border-top: 1px solid #eee;
+}
+
+#footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;          /* Add padding for spacing inside the container */
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;        /* Space between contact items */
+}
+
+.contact-item p {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+
+}
+
+.footer img {
+    margin-right: 10px;
+}
+
+.githubLogo,
+.linkedInLogo,
+.emailLogo {
+    height: 30px;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+#coquiNavLogo {
+    height: 75px;
+    margin-right: 20px;
+}
+
+.footer img:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.container-fluid {
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-primary);
+}
+
+
+/* Header Menu */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Coqui Nav Logo and Name */
 
 /* Logo Section */
 #logo-img {
     flex: 1;
     display: flex;
-    justify-content: center; /* Center the logo */
-    align-items: center; /* Vertically center the logo */
+    justify-content: center;
+    align-items: center;
 }
 
 #logo-img img {
-    height: 50px; /* Adjust the height as needed */
+    height: 75px;
+    margin-left: -300px;
+}
+
+/* Coqui Nav name */
+#coquiNav {
+    font-family: var(--font-family-title);
+    font-weight: 400;
+    font-size: 36px;
+    padding-left: 25px;
 }
 
 /* Filter Section */
@@ -81,44 +177,22 @@ header {
     background-color: var(--color-hover);
 }
 
-/* General Reset */
-/* General Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 
-html {
-    font-size: 16px;
-    font-family: Arial, sans-serif;
-}
-
-header {
-    border-bottom: 1px solid #eee;
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    padding: 0 1rem;
-    z-index: 1001; /* Ensure header (with burger icon) is on top */
-}
 
 /* Hamburger Menu Wrapper */
 #menuToggle {
     position: relative;
-    z-index: 1002; /* Ensure hamburger is on top of everything */
+    z-index: 1002;
 }
     
 nav#menu {
     position: fixed;
     top: 0;
-    left: -300px; /* Start off-screen */
+    left: -300px;
     width: 300px;
     height: 100vh;
     background-color: var(--color-header);
-    z-index: 500; /* Lower than the hamburger menu */
+    z-index: 500;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -128,12 +202,12 @@ nav#menu {
 
 /* Hide the checkbox */
 #menuToggle input {
-    display: none; /* Keeps the checkbox hidden */
+    display: none;
 }
 
 /* Hamburger Icon */
 #burger {
-    position: fixed; /* Fix the burger icon position */
+    position: relative;
     top: 1rem;
     left: 1rem;
     width: 2rem;
@@ -142,14 +216,17 @@ nav#menu {
     justify-content: space-between;
     flex-direction: column;
     cursor: pointer;
-    z-index: 1003; /* Highest z-index to keep burger/X on top of everything */
+    z-index: 1003;
+    margin: 0 auto;
+    bottom: 10%;
+    transform: translateY(-50%);
 }
 
 #burger div {
     width: 100%;
     height: 2px;
     background-color: #1E1E1E;
-    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
 }
 
 /* Change background color when checked */
@@ -159,32 +236,18 @@ nav#menu {
 
 /* Transform hamburger to X when clicked */
 #menuToggle input:checked + label div:nth-child(1) {
-    transform: translateY(15px) rotate(45deg); /* Rotate and move the first line */
+    transform: translateY(15px) rotate(45deg);
 }
 
 #menuToggle input:checked + label div:nth-child(2) {
-    opacity: 0; /* Hide the middle line */
+    opacity: 0;
 }
 
 #menuToggle input:checked + label div:nth-child(3) {
-    transform: translateY(-15px) rotate(-45deg); /* Rotate and move the third line */
+    transform: translateY(-15px) rotate(-45deg);
 }
 
 /* Sliding Menu */
-#menu {
-    position: fixed;
-    top: 0;
-    left: -300px; /* Start off-screen */
-    width: 300px;
-    height: 100vh;
-    background-color: var(--color-header);
-    z-index: 500;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    padding-top: 5rem;
-    transition: transform 0.3s ease-in-out; /* Smooth transition */
-}
 
 /* Menu List Styles */
 #menu ul {
@@ -214,24 +277,29 @@ nav#menu {
 #menuToggle input:checked ~ nav#menu {
     transform: translateX(300px);
 }
+
 /* Landing Page Styling */
 
 /* Container for the landing page */
 .landingPage-container {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Adjusted for better proportions */
+    grid-template-columns: 2fr 1fr;
     grid-template-rows: auto 1fr auto;
-    gap: 20px;
     align-items: center;
     justify-items: center;
     min-height: 100vh;
     background-color: var(--color-primary);
-    padding: 40px; /* Adjusted for better spacing */
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 /* Map/Branding image */
 .mapB-image {
-    grid-column: 1 / 2;
+    grid-column: 1;
     grid-row: 1 / 4;
     display: flex;
     justify-content: center;
@@ -239,20 +307,21 @@ nav#menu {
 }
 
 .mapB-image img {
-    max-width: 80%; /* Adjust size for better control */
+    max-width: 80%;
     height: auto;
     padding: 20px;
 }
 
 /* Call to Action Section */
 .call_to_action {
-    grid-column: 2 / 3; /* Second column */
-    grid-row: 1 / 2; /* Top text section */
+    grid-column: 2;
+    grid-row: 1 / 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding: 20px; /* Added padding for spacing */
+    padding: 20px;
+    margin-top: 200px;
 }
 
 .call_to_action h1 {
@@ -260,12 +329,13 @@ nav#menu {
     font-size: 3em;
     color: var(--color-text);
     margin: 0;
-    margin-bottom: 15px; /* Added spacing */
+    margin-bottom: 15px;
 }
 
 .call_to_action h3 {
     font-family: var(--font-family-base);
     font-size: 1.5em;
+    font-weight: lighter;
     color: var(--color-text);
     margin-top: 10px;
     margin-bottom: 20px;
@@ -273,11 +343,13 @@ nav#menu {
 
 /* Sign-up Button */
 .signup-container {
-    grid-column: 2 / 3; /* Second column */
-    grid-row: 3 / 4; /* Separate row for the button */
+    grid-column: 2;
+    grid-row: 2;
     display: flex;
-    justify-content: flex-start; /* Align to the left */
-    padding-top: 20px; /* Added padding */
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 250px;
+    margin-right: 50px;
 }
 
 #joinusButton {

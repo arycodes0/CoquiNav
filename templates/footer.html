@@ -1,8 +1,35 @@
 <!-- Footer Template -->
- <div class="container">
-    <div class="panel-footer">
-        <footer>
-            <p>Footer Placeholder</p>
-        </footer>
+<footer class="footer">
+    <div id="footer-container">
+        <!-- Logo -->
+        <img id="coquiNavLogo" src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo"> 
+        
+        <!-- Contact Info -->
+        <div class="footer-contact">
+            <div class="contact-item">
+                <p>Koral Rivera Ocasio</p>  
+                <a href="https://github.com/kriverao98" target="_blank">
+                    <img class="githubLogo" src="{{ url_for('static', filename='images/github-mark.png') }}" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/koralriverao98" target="_blank">
+                    <img class="linkedInLogo" src="{{ url_for('static', filename='images/In-Blue-128.png') }}" alt="LinkedIn">
+                </a>
+                <a href="riveraocasiokoral29@gmail.com" target="_blank">
+                    <img class="emailLogo" src="{{ url_for('static', filename='images/email-logo.png') }}" alt="LinkedIn">
+                </a>
+            </div>
+            <div class="contact-item">
+                <p>Aryam M Alvarez Ramos</p>      
+                <a href="https://github.com/arycodes0" target="_blank">
+                    <img class="githubLogo" src="{{ url_for('static', filename='images/github-mark.png') }}" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/aryamalvarez" target="_blank">
+                    <img class="linkedInLogo" src="{{ url_for('static', filename='images/In-Blue-128.png') }}" alt="LinkedIn">
+                </a>
+                <a href="" target="_blank">
+                    <img class="emailLogo" src="{{ url_for('static', filename='images/email-logo.png') }}" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
     </div>
- </div>
+</footer>
