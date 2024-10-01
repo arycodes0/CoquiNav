@@ -1,20 +1,9 @@
 /*
 Styling for COQUI NAV
 */
- * {
-    box-sizing: border-box;
- }
 
- html {
-    scroll-behavior: smooth;
-    font-size: 62.5%;
-    position: relative;
-    height: 100%;
-    margin: auto;
- }
-
- /* Custom Properties */
- :root {
+/* Custom Properties */
+:root {
     /* Colors */
     --color-header: #9CBA9D;
     --color-primary: #F2F7F4;
@@ -30,10 +19,15 @@ Styling for COQUI NAV
     /* Padding and Margins */
     --header-button-padding: 8px 35px;
     --header-button-margins: 5px 10px;
- }
-
- /* Header and Footer */
- header {
+}
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    min-height: 100vh;
+}
+/* Header and Footer */
+header {
     background-color: var(--color-header);
     padding: 0;
     display: flex;
@@ -42,9 +36,35 @@ Styling for COQUI NAV
     width: 100%;
     margin: 0;
     box-sizing: border-box;
- }
+}
 
- #eventAdder, #loginButton, #signupButton {
+/* Logo Section */
+#logo-img {
+    flex: 1;
+    display: flex;
+    justify-content: center; /* Center the logo */
+    align-items: center; /* Vertically center the logo */
+}
+
+#logo-img img {
+    height: 50px; /* Adjust the height as needed */
+}
+
+/* Filter Section */
+#filter {
+    flex: 1;
+    display: flex;
+    align-items: center; /* Center filter vertically */
+}
+
+/* Event Adder, Log In, and Sign Up Buttons */
+#event-adder, #login, #signup {
+    display: flex;
+    align-items: center;
+    margin-left: 10px; /* Add space between buttons */
+}
+
+#eventAdder, #loginButton, #signupButton {
     background-color: var(--color-button-bg);
     text-align: center;
     border: none;
@@ -54,140 +74,223 @@ Styling for COQUI NAV
     margin: var(--header-button-margins);
     cursor: pointer;
     border-radius: 50px;
- }
-
- #eventAdder:hover, #loginButton:hover, #signupButton:hover {
-    background-color: var(--color-hover);
- }
-
-/* Style for the hamburger icon */
-
-#menuToggle {
-    position: relative;
-    z-index: 1;
-    padding-left: 10px;
-   }
-
-#menuToggle input {
-    position: absolute;
-    width:40px;
-    cursor: pointer;
-    opacity: 0; 
-    z-index: 2;
-    -webkit-touch-callout: none;
-  }
-  #menuToggle span {
-    display: block;
-    width: 33px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-    background: #cdcdcd;
-    border-radius: 3px;
-    z-index: 1;
-  }
-  #menuToggle span {
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
-        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
-    transform-origin: 4px 0px;
-    }
-#menuToggle span:first-child {
-    transform-origin: 0% 0%;
+    transition: background-color 0.3s ease;
 }
 
-#menuToggle span:nth-last-child(2) {
-    transform-origin: 0% 100%;
-}
-
-#menuToggle input:checked ~ span {
-    opacity: 1;
-    transform: rotate(45deg) translate(-2px, -1px);
-    background: #232323;
-}
-#menuToggle input:checked ~ span:nth-last-child(2) {
-    transform: rotate(-45deg) translate(0, -1px);
-}
-#menuToggle input:checked ~ span:nth-last-child(3) {
-    opacity: 0;
-    transform: rotate(0deg) scale(0.2, 0.2);
-}
-
-/* Styling for menu options inside hambuger stack*/
-#menu {
-    position: absolute;
-    left: -300px;
-    top: 80px;
-    width: 200px; 
-    margin: -100px 0 0 -50px;
-    padding: 50px;
-    padding-top: 125px;
-    background: var(--color-primary);
-    list-style-type: none;
-    -webkit-font-smoothing: antialiased;
-    
-    transition: left 0.5s;
-    border-radius: 40px;
-  }
-
-  #menu li a {
-    text-decoration: none;
-    color: var(--color-header);
-    display: block;
-    padding: 10px 20px;
-  }
-
-  #menu li {
-    border:solid var(--color-header);
-    background-color: var(--color-header);
-    padding: 10px 20px;
-    margin-bottom: 10px;
-    border-radius: 50px;
-    text-align: center;
-    padding-bottom: 20px;
-
-  }
-
-  #menuToggle input:checked ~ ul {
-    left:40px;
-  }
-
-/* Styling for sign up container */
-#joinusButton {
-    background-color: var(--color-header);
-    text-align: center;
-    border: none;
-    padding: var(--header-button-padding);
-    text-decoration: none;
-    font-size: medium;
-    margin: var(--header-button-margins);
-    cursor: pointer;
-    border-radius: 50px;
-}
-#joinusButton:hover {
+#eventAdder:hover, #loginButton:hover, #signupButton:hover {
     background-color: var(--color-hover);
 }
-/* Landing Page Styling */
 
-#landingPage-container {
+/* General Reset */
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    border-bottom: 1px solid #eee;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
-}
-/* Index img container */
-#mapB-image {
-    width: 50%;
+    position: relative;
+    padding: 0 1rem;
+    z-index: 1001; /* Ensure header (with burger icon) is on top */
 }
 
-/* Index Call to Action */
-#call_to_action {
-    position: absolute;
-    top: 50px;
-    left: 50px;
+/* Hamburger Menu Wrapper */
+#menuToggle {
+    position: relative;
+    z-index: 1002; /* Ensure hamburger is on top of everything */
+}
+    
+nav#menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Start off-screen */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-header);
+    z-index: 500; /* Lower than the hamburger menu */
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 5rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hide the checkbox */
+#menuToggle input {
+    display: none; /* Keeps the checkbox hidden */
+}
+
+/* Hamburger Icon */
+#burger {
+    position: fixed; /* Fix the burger icon position */
+    top: 1rem;
+    left: 1rem;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1003; /* Highest z-index to keep burger/X on top of everything */
+}
+
+#burger div {
+    width: 100%;
+    height: 2px;
+    background-color: #1E1E1E;
+    transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+/* Change background color when checked */
+#menuToggle input:checked + label #burger div {
+    background-color: #1E1E1E;
+}
+
+/* Transform hamburger to X when clicked */
+#menuToggle input:checked + label div:nth-child(1) {
+    transform: translateY(15px) rotate(45deg); /* Rotate and move the first line */
+}
+
+#menuToggle input:checked + label div:nth-child(2) {
+    opacity: 0; /* Hide the middle line */
+}
+
+#menuToggle input:checked + label div:nth-child(3) {
+    transform: translateY(-15px) rotate(-45deg); /* Rotate and move the third line */
+}
+
+/* Sliding Menu */
+#menu {
+    position: fixed;
+    top: 0;
+    left: -300px; /* Start off-screen */
+    width: 300px;
+    height: 100vh;
+    background-color: var(--color-header);
+    z-index: 500;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 5rem;
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+/* Menu List Styles */
+#menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#menu li {
+    padding: 1rem;
+    border-bottom: 1px solid var(--color-header);
+    text-align: center;
+}
+
+#menu a {
     color: var(--color-text);
-    font: var(--font-family-base);
-    font-size: medium;
-    z-index: 2;
-    padding: 10px;
+    text-decoration: none;
+    font-family: var(--font-family-base);
+    font-size: 1.6rem;
+}
+
+#menu a:hover {
+    color: var(--color-hover);
+}
+
+/* Slide in the menu when checked */
+#menuToggle input:checked ~ nav#menu {
+    transform: translateX(300px);
+}
+/* Landing Page Styling */
+
+/* Container for the landing page */
+.landingPage-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Adjusted for better proportions */
+    grid-template-rows: auto 1fr auto;
+    gap: 20px;
+    align-items: center;
+    justify-items: center;
+    min-height: 100vh;
+    background-color: var(--color-primary);
+    padding: 40px; /* Adjusted for better spacing */
+}
+
+/* Map/Branding image */
+.mapB-image {
+    grid-column: 1 / 2;
+    grid-row: 1 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mapB-image img {
+    max-width: 80%; /* Adjust size for better control */
+    height: auto;
+    padding: 20px;
+}
+
+/* Call to Action Section */
+.call_to_action {
+    grid-column: 2 / 3; /* Second column */
+    grid-row: 1 / 2; /* Top text section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px; /* Added padding for spacing */
+}
+
+.call_to_action h1 {
+    font-family: var(--font-family-title);
+    font-size: 3em;
+    color: var(--color-text);
+    margin: 0;
+    margin-bottom: 15px; /* Added spacing */
+}
+
+.call_to_action h3 {
+    font-family: var(--font-family-base);
+    font-size: 1.5em;
+    color: var(--color-text);
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Sign-up Button */
+.signup-container {
+    grid-column: 2 / 3; /* Second column */
+    grid-row: 3 / 4; /* Separate row for the button */
+    display: flex;
+    justify-content: flex-start; /* Align to the left */
+    padding-top: 20px; /* Added padding */
+}
+
+#joinusButton {
+    background-color: var(--color-header);
+    color: var(--color-text);
+    font-size: 1.5em;
+    padding: 15px 50px;
     border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#joinusButton:hover {
+    background-color: var(--color-hover);
 }

@@ -1,50 +1,50 @@
-<!-- Header template -->
- <header>
-    <!-- NavBar -->
-    <!-- Hamburger Menu -->
-    <div id="menuToggle">
-      <input type="checkbox" />
-      <span></span>
-      <span></span>
-      <span></span>
-      <ul id="menu">
-        <a href="#"><li>Home</li></a>
-        <a href="#"><li>Events</li></a>
-        <a href="#"><li>Host Events</li></a>
-        <a href="#"><li>Profile</li></a>
-        <a href="#"><li>My Events</li></a>
-        <a href="#"><li>Logout</li></a>
-       </ul>
-    </div>
+<header>
+  <!-- Hamburger Menu -->
+  <div id="menuToggle">
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menuToggleCheckbox">
 
+    <!-- Hamburger Icon -->
+    <label id="burger" for="menuToggleCheckbox">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+
+    <!-- Sliding Menu -->
+    <nav id="menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Host Events</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">My Events</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </nav>
+  </div>
+
+  <!-- Logo and other sections -->
   <section id="logo-img">
-    <link rel="icon" type="image/png" href="/images/logo.png">
+      <link rel="icon" type="image/png" href="/images/logo.png">
   </section>
 
-    <section id="filter">
-      <label for="distance-placeholder">
-        <!-- Current location to be added dynamically -->
-      </label>
-      <section id="distance-filter">
-        <!-- Distance to be filtered dynamically -->
-      </section>
-    </section>
-    <section id="event-adder">
+  <section id="filter">
+      <label for="distance-placeholder"></label>
+      <section id="distance-filter"></section>
+  </section>
+
+  <section id="event-adder">
       <button id="eventAdder">Add Event</button>
-      <!-- Event added button img to be added through CSS -->
-    </section>
+  </section>
 
-    <!-- Log in Button -->
-     <section id="login">
+  <section id="login">
       <button id="loginButton">Log In</button>
-      <!-- Log In button will be hidden dynamically when user
-       is already logged in -->
-     </section>
+  </section>
 
-     <!-- Sign Up Button -->
-      <section id="signup">
-        <button id="signupButton">Sign Up</button>
-        <!-- Button will be hidden dynamically -->
-      </section>
-      <script src="/static/js/app.js"></script>
- </header>
+  <section id="signup">
+      <button id="signupButton">Sign Up</button>
+  </section>
+
+  <script src="/static/js/app.js"></script>
+</header>

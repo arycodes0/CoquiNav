@@ -3,24 +3,21 @@
 
 {% block content %}
 <div class="landingPage-container">
-   <main>
     <!-- Branding image -->
-     <section id="mapB-image">
-        <img class="img-responsive" id="indexMap" src="{{ url_for('static', filename='images/lowpoly_prMap.png') }}" alt="placeholde">
-    </section> 
-
-    <section id="call_to_action">
-    <h1>Your Community, Your Events!</h1>
-    <h3>
+    <div class="mapB-image">
+        <img class="img-responsive" id="indexMap" src="{{ url_for('static', filename='images/lowpoly_prMap.png') }}" alt="placeholder">
+    </div>
+    <!-- Call to Action -->
+    <div class="call_to_action">
+        <h1>Your Community, Your Events!</h1>
+        <h3>
         Join us and turn your ideas into events that bring people
         together. Sign up now and bring your community closer.
-    </h3>
-</section>
-<div id="signup-container">
-    <button type="button" id="joinusButton">Join Our Community!</button>
+        </h3>
+    </div>
+    <!-- Join Us button -->
+    <div class="signup-container">
+        <button type="button" id="joinusButton">Join Our Community!</button>
+    </div>
 </div>
-
-</main>
-</div>
-
 {% endblock %}
