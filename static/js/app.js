@@ -18,7 +18,7 @@ async function signupFormSubmit() {
     const dataValidation = await verifyUserData()//fill when above is completed
     if (dataValidation.ok) {
       //Redirect user to homepage
-      location.href = '/home.html';
+      location.href = '/home';
     }
     else {
       //Dialog popup when user info matches database
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('click', async (event) => {
       try {
         if (event.target.classList.contains('signup-container')) {
-          location.href = window.location.origin + '/signup.html';
+          location.href = window.location.origin + '/signup';
         }
       }
       catch (error) {
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('click', async (event) => {
       try {
         if (event.target.classList.contains('loginButton')) {
-          location.href = window.location.origin + '/login.html';
+          location.href = window.location.origin + '/login';
         }
       }
       catch (error) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     // Event listener to handle log in form submit
-    let loginForm = document.getElementById("loginButton");
+    let loginForm = document.getElementById("");
     loginForm.addEventListener('submit', (e) => {e.preventDefault();
       const email = document.getElementById('email');
       const password = document.getElementById('pwd');
@@ -116,4 +116,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   });
   
+  $('#login-button').click(function() {
+    $('.login-form').toggleClass('open');
+  })
 })
+document.getElementById('login-button').addEventListener('click', function () {
+  const loginForm = document.querySelector('.login-form');
+  if (loginForm.classList.contains('open')) {
+    loginForm.classList.remove('open'); // Close the form if it's already open
+  } else {
+    loginForm.classList.add('open'); // Open the form
+  }
+});

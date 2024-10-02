@@ -2,48 +2,42 @@
 {% extends 'base.html' %}
 
 {% block content %}
- <div class="container">
+<div class="login-wrapper">
     <main>
         <!-- Branding image -->
-        <section id="map-image">
-            <img class="img-responsive" src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="placeholde"
-            width="460" height="345">
+        <section class="log-in-map">
+            <img src="{{ url_for('static', filename='images/lowpoly_prMap.png') }}" alt="placeholder" width="460" height="345">
         </section>
-        <!-- Log in dropdown form-->
-        <section id="log-in">
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                Login <span class="caret"></span></button>
-                <ul class="dropdown-menu" role="menu">
-                    <form action="/action_page.php">
-                        <div class="form-group">
-                            <li><label for="email">Email:</label></li>
-                            <li><input type="email" class="form-control" id="email" placeholder="Enter Email" name="email"></li>
-                        </div>
-                        <div class="form-group">
-                            <li><label for="pwd">Password:</label></li>
-                            <li><input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd"></li>
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                        <div id="missingInfo" class="modal">
-                            <div class="modal-content">
-                                <span class="close-btn">X</span>
-                                <p>Email or password can not be empty.</p>
-                            </div>
-                        <div id="wrongInfo" class="modal">
-                            <div class="modal-content">
-                                <span class="close-btn">X</span>
-                                <p>Email or password do not match.</p>
-                            </div>
-                        </div>
-                        </div>
+        
+        <!-- Log in form-->
+        <div class="log-in">
+            <button id="login-button">Login</button>
+                <div class="login-container">
+                    <form class="login-form">
+                        <input type="email" id="email" placeholder="Enter Email" name="email" required>
+                        <input type="password" id="pwd" placeholder="Enter password" name="pwd" required>
+                        <button type="submit">Submit</button>
                     </form>
-                </ul>
-              </div>
-        </section>
+                </div>
+        </div>
+
+        <div id="missingInfo" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">X</span>
+                <p>Email or password cannot be empty.</p>
+            </div>
+        </div>
+        
+        <div id="wrongInfo" class="modal">
+            <div class="modal-content">
+                <span class="close-btn">X</span>
+                <p>Email or password do not match.</p>
+            </div>
+        </div>
+
         <section id="sign-up">
-            <button type="button" class="btn btn-prymary btn-lg btn-block">Signup</button>
+            <button type="button" class="signup-button">Signup</button>
         </section>
     </main>    
- </div>
- {% endblock %}
+</div>
+{% endblock %}
