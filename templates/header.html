@@ -32,10 +32,23 @@
       </div>
   </section>
 
-  <section id="filter">
-      <label for="distance-placeholder"></label>
-      <section id="distance-filter"></section>
-  </section>
+  <div class="search-container">
+    <input type="text" class="search-box" id="search" placeholder="Search...">
+    <div class="suggestions" id="suggestions">
+        <ul>
+            <!-- Dynamic suggestions will appear here -->
+        </ul>
+    </div>
+</div>
+
+<div class="location-container">
+  <input type="text" class="search-box" id="search" placeholder="Enter location...">
+  <div class="suggestions" id="suggestions">
+      <ul>
+          <!-- Dynamic suggestions will appear here -->
+      </ul>
+  </div>
+</div>
 
   <section id="event-adder">
       <button class="eventAdder">Add Event</button>

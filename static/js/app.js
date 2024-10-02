@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('click', async (event) => {
       try {
         if (event.target.classList.contains('signupButton')) {
-          location.href = window.location.origin + '/signup.html';
+          location.href = window.location.origin + '/signup';
         }
       }
       catch (error) {
@@ -116,7 +116,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
   });
   
-  $('#login-button').click(function() {
+  $('.login-button').click(function() {
     $('.login-form').toggleClass('open');
   })
 })

@@ -26,6 +26,18 @@ body, html {
     width: 100vw;
     min-height: 100vh;
     box-sizing: border-box;
+    flex-direction: column;
+}
+
+main {
+    flex-grow: 1;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+    display: block;
+    flex-direction: column;
+    background-color: var(--color-primary);
 }
 
 
@@ -46,19 +58,19 @@ header {
     border-bottom: 1px solid #eee;
 }
 
-.footer {
+footer {
     background-color: var(--color-header);
     padding: 0;
     display: flex;
-    justify-content: center;  /* Centers the content horizontally */
-    align-items: center;      /* Centers the content vertically */
+    justify-content: center;
+    align-items: center;
     width: 100%;
     margin: 0;
     box-sizing: border-box;
-    height: 100px;            /* Adjust the height to fit your content */
+    height: 100px;
     z-index: 1001;
-    position: relative;       /* Ensure the footer stays within its position */
-    border-top: 1px solid #eee;
+    position: relative;
+    bottom: 0;
 }
 
 #footer-container {
@@ -67,7 +79,7 @@ header {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 20px;          /* Add padding for spacing inside the container */
+    padding: 0 20px;
 }
 
 .footer-contact {
@@ -79,7 +91,7 @@ header {
 .contact-item {
     display: flex;
     align-items: center;
-    margin-right: 20px;        /* Space between contact items */
+    margin-right: 20px;
 }
 
 .contact-item p {
@@ -112,11 +124,6 @@ header {
     cursor: pointer;
 }
 
-.container-fluid {
-    padding: 0;
-    margin: 0;
-    background-color: var(--color-primary);
-}
 
 
 /* Header Menu */
@@ -373,13 +380,15 @@ nav#menu {
 
 /* Log In Styling */
 
-/* Map Image */
+/* Main Grid Layout */
+@import "bourbon";
+
 .login-wrapper {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto 1fr auto;
     align-items: center;
-    justify-items: center;
+    justify-items: center; 
     min-height: 100vh;
     background-color: var(--color-primary);
     padding: 0;
@@ -389,107 +398,126 @@ nav#menu {
     box-sizing: border-box;
     overflow: hidden;
 }
-.log-in-map {
-    grid-column: 1;
-    grid-row: 4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.log-in-map img {
-    max-width: auto;
-    height: auto;
-    padding: 20px;
-}
-
-/* Log in Button Section */
-
-.login-wrapper {
-    grid-column: 2;
-    grid-row: 1 / 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    margin-top: 200px;
-}
-
-/* Log in button/animation*/
-@import "bourbon";
-
-* {
-  box-sizing: border-box;
-}
-
-.login-wrapper {
-  width: 300px;
-  margin: 40px auto 0;
-}
-
-button {
-  padding: 8px 15px;
-  border: 0;
-  outline: 0;
-  color: #fff;
-  background: #1BBC9B;
-  font-size: 14px;
-  text-transform: uppercase;
-  border-radius: 4px;
-  box-shadow: 0 4px 0 darken(#1BBC9B, 5%);
-  &:active {
-    margin-top: 2px;
-    box-shadow: 0 2px 0 darken(#1BBC9B, 5%);
-  }
+#login-button, #signup-button {
+    padding: 8px 15px;
+    border: 0;
+    outline: 0;
+    color: var(--color-primary);
+    background: var(--color-hover);
+    font-family: var(--font-family-base);
+    font-size: 14px;
+    text-transform: uppercase;
+    border-radius: 4px;
+    box-shadow: 0 4px 0 darken(#799a9c, 5%);
+    &:active {
+        margin-top: 2px;
+        box-shadow: 0 2px 0 darken(#799a9c, 5%);
+    }
 }
 
 .login-container {
-  position: relative;
+    position: relative;
 }
 
 .login-form {
-  display: none;
-  position: absolute;
-  padding: 20px;
-  margin-top: 10px;
-  background: #ddd;
-  border-radius: 4px;
-  box-shadow: 0 4px 0 darken(#ddd, 5%);
-  input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 0;
-    outline: 0;
-    background: #f1f1f1;
-    font-weight: 300;
-    font-style: italic;
-    border-radius: 2px;
-    &:last-child {
-      margin-bottom: 0;
+    display: none;
+    padding: 20px;
+    margin-top: 10px;
+    background: var(--color-footer);
+    border-radius: 4px;
+    box-shadow: 0 4px 0 darken(#799a9c, 5%);
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 0;
+        outline: 0;
+        background: #f1f1f1;
+        font-weight: 300;
+        font-style: italic;
+        border-radius: 2px;
+        &:last-child {
+            margin-bottom: 0;
+        }
     }
-  }
-  input[type="submit"] {
-    color: #ffF;
-    background: #1BBC9B;
-    font-style: normal;
-    box-shadow: 0 4px 0 darken(#1BBC9B, 5%);
-  }
+    input[type="submit"] {
+        color: var(--color-primary);
+        background: var(--color-hover);
+        font-style: normal;
+        box-shadow: 0 4px 0 darken(#799a9c, 5%);
+    }
 }
 
 @include keyframes(slide) {
-  0% {
-    opacity: 0;
-    @include transform(translateY(20px));
-  }
-  100% {
-    opacity: 1;
-    @include transform(translateY(0));
-  }
+    0% {
+        opacity: 0;
+        @include transform(translateY(20px));
+    }
+    100% {
+        opacity: 1;
+        @include transform(translateY(0));
+    }
 }
 
 .open {
-  @include animation(slide 1s);
-  display: block;
+    @include animation(slide 1s);
+    display: block;
 }
+
+/* Image Section */
+.log-in-map {
+    grid-column: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+    overflow: hidden;
+    z-index: 1; 
+}
+
+.log-in-map img {
+    width: 1000px;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Button Section */
+.button-container {
+    grid-column: 2 / 3;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Button styles */
+#login-button, #signup-button {
+    display: block;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: var(--color-footer);
+    color: var(--color-text);
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+
+/* Adjust layout for smaller screens */
+@media (max-width: 768px) {
+    .login-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .button-container {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Log in button/animation */
