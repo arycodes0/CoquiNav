@@ -14,7 +14,7 @@ Styling for COQUI NAV
 
     /* Fonts */
     --font-family-title: 'Rowdies', Helvetica, Arial, sans-serif;
-    --font-family-base: 'Inter', Helvetica, Arial;
+    --font-family-base: 'Oswald', Helvetica, Arial;
 
     /* Padding and Margins */
     --header-button-padding: 8px 35px;
@@ -27,6 +27,7 @@ body, html {
     min-height: 100vh;
     box-sizing: border-box;
     flex-direction: column;
+    overflow: hidden;
 }
 
 main {
@@ -153,20 +154,22 @@ footer {
     font-weight: 400;
     font-size: 36px;
     padding-left: 25px;
+    opacity: 0.75;
 }
 
 /* Filter Section */
 #filter {
     flex: 1;
     display: flex;
-    align-items: center; /* Center filter vertically */
+    align-items: center;
 }
 
 /* Event Adder, Log In, and Sign Up Buttons */
 #event-adder, #login, #signup {
     display: flex;
     align-items: center;
-    margin-left: 10px; /* Add space between buttons */
+    margin-left: 10px;
+    opacity: 0.75;
 }
 .eventAdder, .loginButton, .signupButton {
     background-color: var(--color-button-bg);
@@ -275,6 +278,7 @@ nav#menu {
     text-decoration: none;
     font-family: var(--font-family-base);
     font-size: 1.6rem;
+    opacity: 0.75;
 }
 
 #menu a:hover {
@@ -380,13 +384,12 @@ nav#menu {
 
 /* Log In Styling */
 
-/* Main Grid Layout */
 @import "bourbon";
 
 .login-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: 300px auto;
     align-items: center;
     justify-items: center; 
     min-height: 100vh;
@@ -399,43 +402,76 @@ nav#menu {
     overflow: hidden;
 }
 
-#login-button, #signup-button {
-    padding: 8px 15px;
-    border: 0;
-    outline: 0;
-    color: var(--color-primary);
-    background: var(--color-hover);
-    font-family: var(--font-family-base);
-    font-size: 14px;
-    text-transform: uppercase;
-    border-radius: 4px;
-    box-shadow: 0 4px 0 darken(#799a9c, 5%);
-    &:active {
-        margin-top: 2px;
-        box-shadow: 0 2px 0 darken(#799a9c, 5%);
-    }
+.form-container {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    padding: 20px;
+    gap: 20px;
+    margin-bottom: 400px;
 }
 
-.login-container {
-    position: relative;
+
+.wlcm-msg {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-column: 2;
+    grid-row: 1;
+    font-family: var(--font-family-title);
+    color: var(--color-text);
+    padding-top: 300px;
+    text-align: center;
+}
+
+.wlcm-msg h1 {
+    font-size: 90px;
+    text-align: center;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+.wlcm-msg p {
+    font-family: var(--font-family-base);
+    font-size: 20px;
+    opacity: 0.75;
+}
+
+.log-in {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2;
+    grid-row: 2;
 }
 
 .login-form {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-row: 2;
     padding: 20px;
-    margin-top: 10px;
+    width: 600px;
+    height: 250px;
     background: var(--color-footer);
-    border-radius: 4px;
+    border-radius: 10px;
     box-shadow: 0 4px 0 darken(#799a9c, 5%);
     input {
-        width: 100%;
+        width: 500px;
+        height: 40px;
         padding: 8px;
-        margin-bottom: 10px;
+        margin-top: 15px;
         border: 0;
         outline: 0;
         background: #f1f1f1;
         font-weight: 300;
         font-style: italic;
+        text-align: center;
         border-radius: 2px;
         &:last-child {
             margin-bottom: 0;
@@ -449,53 +485,76 @@ nav#menu {
     }
 }
 
-@include keyframes(slide) {
-    0% {
-        opacity: 0;
-        @include transform(translateY(20px));
-    }
-    100% {
-        opacity: 1;
-        @include transform(translateY(0));
-    }
+.input-container {
+    position: relative;
+    margin-top: 15px;
 }
 
-.open {
-    @include animation(slide 1s);
-    display: block;
+.input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s;
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-top: 5px;
+}
+/* Base Button Styling */
+#submit-button {
+    position: relative;
+    margin-top: 20px;
+    height: 50px;
+    width: 200px;
+    align-self: center;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: var(--font-family-base);
+    color: #506650; /* Deep Green for text */
+    background-color: #F2F7F4; /* Light Green for button background */
+    border: 3px solid #A3C1AD; /* Regular green border for all sides */
+    border-radius: 25px;
+    padding: 10px 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(122, 135, 135, 0.15); /* Slight shadow */
+    transition: all 0.2s ease;
 }
 
-/* Image Section */
-.log-in-map {
-    grid-column: 1 / 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-height: 100%;
-    overflow: hidden;
-    z-index: 1; 
+/* Pseudo-element for larger bottom border */
+#submit-button::before {
+    content: '';
+    position: relative;
+    bottom: 6px;
+    left: 0;
+    right: 0;
+    height: 8px; /* Thickness of the bottom border */
+    background-color: #A3C1AD; /* Green color for bottom border */
+    z-index: 2; /* Ensure it appears behind the button */
+    transition: all 0.2s ease;
+    opacity: 1; /* Make sure it's always visible */
 }
 
-.log-in-map img {
-    width: 1000px;
-    height: auto;
-    object-fit: cover;
+/* Hover State */
+#submit-button:hover {
+    background-color: #A3C1AD; /* Lighter green on hover */
+    color: #F2F7F4; /* Text changes to light green */
+    box-shadow: 0 5px 10px rgba(122, 135, 135, 0.2);
+}
+
+/* Active State (click down animation) */
+#submit-button:active {
+    transform: translateY(4px); /* Button click-down effect */
+    background-color: #506650;  /* Darker green for active state */
+    border-color: #506650;      /* Matching border on click */
+    box-shadow: 0 2px 8px rgba(122, 135, 135, 0.2);
 }
 
 /* Button Section */
-.button-container {
-    grid-column: 2 / 3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    padding: 20px;
-    gap: 20px;
-}
-
 /* Button styles */
-#login-button, #signup-button {
+#signup-button {
     display: block;
     padding: 10px 20px;
     font-size: 16px;
@@ -503,10 +562,27 @@ nav#menu {
     background-color: var(--color-footer);
     color: var(--color-text);
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     transition: background-color 0.3s;
 }
 
+/* Image Section */
+.log-in-map {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+    z-index: 1; 
+    padding-top: 950px;
+}
+
+.log-in-map img {
+    width: 1000px;
+    height: auto;
+    object-fit: cover;
+}
 
 /* Adjust layout for smaller screens */
 @media (max-width: 768px) {

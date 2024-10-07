@@ -6,22 +6,37 @@
         <section class="log-in-map">
             <img src="{{ url_for('static', filename='images/lowpoly_prMap.png') }}" alt="placeholder" width="460" height="345">
         </section>
-        
+
+        <!-- Welcome message -->
+         <div class="wlcm-msg">
+            <h1>Welcome Back!</h1>
+            <p>Welcome back, please enter your details!</p>
+         </div>
+
         <!-- Button container for both login and signup -->
-        <div class="button-container">
+        <div class="form-container">
             <!-- Log in form-->
             <div class="log-in">
-                <button type="button" id="login-button">Login</button>
-                <div class="login-container">
-                    <form class="login-form">
+                <form class="login-form">
+                    <!-- Email Input -->
+                     <div class="input-container">
+                        <img src="/static/images/user-placeholder.png" alt="login user icon" class="input-icon"/>
                         <input type="email" id="email" placeholder="Enter Email" name="email" required>
-                        <input type="password" id="pwd" placeholder="Enter password" name="pwd" required>
-                        <button type="submit">Submit</button>
-                    </form>
-                </div>
+                     </div>
+
+                    <!-- Paasword Input -->
+                     <div class="input-container">
+                        <img src="/static/images/lock-placeholder.png" alt="Password lock icon" class="input-icon"/>
+                        <input type="password" id="pwd" placeholder="Enter password" name="pwd" required>   
+                     </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" id="submit-button">Login</button>
+                </form>
             </div>
-                        <div class="sign-up">
-                <button type="button" id="signup-button">Signup</button>
+            <div class="sign-up">
+                <p>Don't have an account?</p>
+                <button type="button" id="signup-button">Create Account</button>
             </div>
         </div>
 
