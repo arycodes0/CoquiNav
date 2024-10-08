@@ -1,18 +1,16 @@
 <!-- Sign up template -->
- {% extend base.html %}
+{% extends 'base.html' %}
 
  {% block content %}
 
- <div class="container">
+ <div class="signup-container">
     <main>
         <!-- Branding image -->
-         <section id="mapB-image">
-            <img class="img-responsive" src="{{ url_for('static', filename='images/placeholder.jpg') }}" alt="placeholde"
-            width="460" height="345">
+         <section class="mountains-img">
+            <img id="bg-img" src="{{ url_for('static', filename='images/bg-mountains.png') }}" alt="Green Mountains">
          </section>
          <!-- Sign up form-->
-          <section id="signup">
-            <form action="/action_page.php">
+          <section class="signup-form">
                 <div class="form-group">
                     <!-- First name -->
                   <input type="first-name" class="form-control" id="first-name" placeholder="First Name" name="first-name">

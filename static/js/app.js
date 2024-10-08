@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Event listener to handle index Join Us button
     document.addEventListener('click', async (event) => {
       try {
-        if (event.target.classList.contains('signup-container')) {
+        if (event.target.classList.contains('joinusButton')) {
           location.href = window.location.origin + '/signup';
         }
       }
