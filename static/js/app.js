@@ -180,4 +180,38 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       });
     }
+
+  // Menu item click event listener
+  const menuItems = document.querySelectorAll('#menu li a');
+
+  menuItems.forEach(item => {
+      item.addEventListener('click', (event) => {
+          event.preventDefault();
+          const targetId = item.parentElement.className;
+
+          console.log(`${targetId} button clicked`);
+
+          // Redirect based on the clicked menu item
+          switch (targetId) {
+              case 'home':
+                  location.href = window.location.origin + '/home';
+                  break;
+              case 'events':
+                  location.href = window.location.origin + '/events';
+                  break;
+              case 'hostEvents':
+                  location.href = window.location.origin + '/createEvents';
+                  break;
+              case 'profile':
+                  location.href = window.location.origin + '/profile';
+                  break;
+              case 'logout': //Placeholder for the time being
+                  console.log('Logging out...');
+                  location.href = '/logout';
+                  break;
+              default:
+                  console.error('Unknown menu item:', targetId);
+          }
+      });
+  });
 })

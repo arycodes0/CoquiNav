@@ -1,5 +1,7 @@
-from flask import request, session, redirect, url_for, flash, render_template
+from flask import Flask, request, session, redirect, url_for, flash, render_template
 from firebase_auth import verify_user_token  # Import your Firebase auth helper
+
+app = Flask(__name__)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -28,7 +30,7 @@ def signup():
 
 @app.route('/home')
 def home():
-    return render_template('/home.html')
+    return render_template('home.html')
 
 @app.route('/events')
 def events():
@@ -36,8 +38,11 @@ def events():
 
 @app.route('/addEvent')
 def addEvent():
-    return render_template('createEvent.html')
+    return render_template('createEvents.html')
 
 @app.route('/profile')
 def profile():
     return render_template('profile.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)

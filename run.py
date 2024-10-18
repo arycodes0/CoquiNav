@@ -18,5 +18,21 @@ def login():
 def signup():
     return render_template('signup.html')
 
+@app.route('/home')
+def home():
+    return render_template('home.html')
+
+@app.route('/events')
+def events():
+    return render_template('events.html')
+
+@app.route('/createEvents')
+def addEvent():
+    return render_template('createEvents.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('profile.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
