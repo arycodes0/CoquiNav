@@ -3,31 +3,35 @@
 
  {% block content %}
 
- <div class="signup-container">
+ <div class="signupPage-container">
     <main>
         <!-- Branding image -->
-         <section class="mountains-img">
-            <img id="bg-img" src="{{ url_for('static', filename='images/bg-mountains.png') }}" alt="Green Mountains">
+         <section class="greenLogo">
+            <img id="bg-img" src="{{ url_for('static', filename='/images/greenLogo.png') }}" alt="Green Mountains">
          </section>
+         <!-- Welcome Msg -->
+          <section class="signup-msg">
+            <h1>Join your community...</h1>
+          </section>
          <!-- Sign up form-->
           <section class="signup-form">
-                <div class="form-group">
+                <div class="name-input">
                     <!-- First name -->
                   <input type="first-name" class="form-control" id="first-name" placeholder="First Name" name="first-name">
                 </div>
-                <div class="form-group">
+                <div class="lastName-form">
                     <!-- Last Name -->
                   <input type="last-name" class="form-control" id="last-name" placeholder="Last name" name="last-name">
                 </div>
-                <div class="form-group">
+                <div class="email-form">
                     <!-- Email -->
                     <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
                   </div>
-                <div class="form-group">
+                <div class="pwd-form">
                     <!-- Password-->
                      <input type="pwd" class="form-control" id="pwd" placeholder="New password" name="pwd">
                 </div>
-                <div class="container mt-5">
+                <div class="birthdate-container">
                     <div class="datepicker-container">
                         <select class="form-select" id="month" aria-label="Select Month">
                             <option selected>Month</option>
@@ -56,16 +60,19 @@
                         </select>
                     </div>
                 </div>
-                <div class="checkbox">
-                  <label><input type="checkbox" name="remember">Are you a host?</label>
+                <div class="host-checkbox">
+                  <label><input type="checkbox" name="remember">Do you want to host?</label>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
+                <button type="submit">Submit</button>
               </form>
           </section>
-          <div id="dialog" title="Sign Up Unsuccesful">
-            <span class="close">&times;</span>
-            <p>The information given already matches an user.</p>
-          </div>
+          <!-- Modal Popup -->
+           <section class="error-msg">
+            <div class="error-content">
+              <span class="close-btn">X</span>
+              <p>Details already in system.</p>
+            </div>
+           </section>
     </main>
  </div>
  {% endblock %}

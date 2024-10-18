@@ -1,5 +1,24 @@
 // File contains all main app scripts for CoquiNav website
 
+//Verify user data 
+async function verifyUserData(userId, email, password) {
+  const userRef = doc(database, 'users', userId);
+
+  try {
+      const docSnap = await getDoc(userRef);
+      
+      if (docSnap.exists()) {
+          return true;
+      } else {
+          return false;
+      }
+  } catch (error) {
+      console.error("Error verifying user data:", error);
+      return false;
+  }
+}
+
+
 //Signup button onclick
 
 //Sign up send input
@@ -31,100 +50,134 @@ async function signupFormSubmit() {
   })
 }
 
+//Get user id by email
+async function getUserIdByEmail(email) {
+  const usersRef = collection(database, 'users');
+  const q = query(usersRef, where('email', '==', email));
+
+  const querySnapshot = await getDocs(q);
+  if (!querySnapshot.empty) {
+    return querySnapshot.docs[0].id; // Return userId
+  } else {
+    throw new Error("User not found. Please sign up.");
+  }
+}
+
+//Handle login
+async function handleLogin(email, password) {
+  try {
+    const userId = await getUserIdByEmail(email);
+    const userExists = await verifyUserData(userId, email, password);
+    const auth = getAuth();
+
+    if (userExists) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          window.location.href = "/home.html"; // Redirect to home/modify with url later
+        }
+      });
+    } else {
+      throw new Error("Login failed. Check your credentials.");
+    }
+  } catch (error) {
+    console.error("An error occurred during login:", error);
+    throw error; // Re-throw the error to handle it outside
+  }
+}
+
 //DOMContentLoaded Event Listener
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('DOM fully loaded and parsed.');
 
-    // Event listener to handle index Join Us button
-    document.addEventListener('click', async (event) => {
-      try {
-        if (event.target.classList.contains('joinusButton')) {
-          location.href = window.location.origin + '/signup';
-        }
-      }
-      catch (error) {
-        console.error('Signup page could not be fetched.')
-      }
-    });
-
-    // Event listener to handle log in button
-    document.addEventListener('click', async (event) => {
-      try {
-        if (event.target.classList.contains('loginButton')) {
-          location.href = window.location.origin + '/login';
-        }
-      }
-      catch (error) {
-        console.error('Log In redirect could not be fetched.')
-      }
-    });
-
-    // Event listener to handle log in form submit
-    let loginForm = document.getElementById("");
-    loginForm.addEventListener('submit', (e) => {e.preventDefault();
-      const email = document.getElementById('email');
-      const password = document.getElementById('pwd');
-
-      //Check if fields are empty
-      if (email.value == ''|| password.value == '') {
-        // Alert moodal for empty fields
-        let warningAlert = document.getElementById('missingInfo');
-        warningAlert.style.display = 'flex';
-        // Close button for modal
-        let closeButton = document.querySelector('.close-btn');
-        closeButton.addEventListener('click', function() {
-          warningAlert.style.display = 'none;'
-        });
-        return;
-        }
-
-        // Verify user info
+    // Event listener for the Join Us button
+    const joinusButton = document.querySelector('.joinusButton');
+    console.log(joinusButton);
+    if (joinusButton) {
+      joinusButton.addEventListener('click', async (event) => {
+        console.log('Join Us button clicked');
         try {
-          const verifyData = verifyUserData()
-        
-        if (!verifyData.ok) {
-          throw new Error('Login failed. Check your credentials.')
+          location.href = window.location.origin + '/signup';
+        } catch (error) {
+          console.error('Signup page could not be fetched.');
         }
-        const data = verifyData.json()
-        // If info is correct, redirect user to homepage
-        window.location.href = '/home.html'
-      }
-      catch (error) {
-        console.error("An error occurred during login")
-        // Alert modal for wrong user info
-        let errorAlert = document.getElementById('wrongInfo');
-        errorAlert.textContent = error.message;
-        errorAlert.style.display = 'flex';
-
-        let closeButton = document.querySelector('.close-btn');
-        closeButton.addEventListener('click', function() {
-          errorAlert.style.display = 'none';
-        });
-        return;
-      }
       });
+    }
 
     // Event listener to handle sign up button
-    document.addEventListener('click', async (event) => {
-      try {
-        if (event.target.classList.contains('signupButton')) {
+    const signupButton = document.querySelector('.signupButton');
+    console.log('Sign up button:', signupButton);
+    if (signupButton) {
+      signupButton.addEventListener('click', async (event) => {
+        console.log('Sign up button clicked');
+        try {
           location.href = window.location.origin + '/signup';
+        } catch (error) {
+          console.error('Sign Up redirect could not be fetched.');
         }
-      }
-      catch (error) {
-        console.error('Sign Up redirect could not be fetched.')
-      }
-  });
+      });
+    }
+      
+
+    // Event listener to handle log in button
+    const loginButton = document.querySelector('.loginButton');
+    console.log('Log in button:', loginButton);
+    if (loginButton) {
+      loginButton.addEventListener('click', async (event) => {
+        console.log('Log in button clicked');
+        try {
+          location.href = window.location.origin + '/login';
+        } catch (error) {
+          console.error('Log In redirect could not be fetched.');
+        }
+      });
+    }
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+      loginForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
   
-  $('.login-button').click(function() {
-    $('.login-form').toggleClass('open');
-  })
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('pwd').value;
+  
+        // Check if fields are empty
+        if (email === '' || password === '') {
+          let warningAlert = document.getElementById('missingInfo');
+          warningAlert.style.display = 'flex';
+  
+          let closeButton = document.querySelector('.close-btn');
+          closeButton.addEventListener('click', function () {
+            warningAlert.style.display = 'none';
+          });
+          return;
+        }
+  
+        // Handle user login
+        try {
+          await handleLogin(email, password);
+        } catch (error) {
+          console.error('An error occurred during login', error);
+          let errorAlert = document.getElementById('wrongInfo');
+          errorAlert.textContent = error.message;
+          errorAlert.style.display = 'flex';
+  
+          let closeButton = document.querySelector('.close-btn');
+          closeButton.addEventListener('click', function () {
+            errorAlert.style.display = 'none';
+          });
+        }
+      });
+    }
+    // Event listener to handle sign up button
+    const createAccount = document.querySelector('.sign-up');
+    console.log('Sign up button:', createAccount);
+    if (createAccount) {
+      createAccount.addEventListener('click', async (event) => {
+        console.log('Sign up button clicked');
+        try {
+          location.href = window.location.origin + '/signup';
+        } catch (error) {
+          console.error('Sign Up redirect could not be fetched.');
+        }
+      });
+    }
 })
-document.getElementById('login-button').addEventListener('click', function () {
-  const loginForm = document.querySelector('.login-form');
-  if (loginForm.classList.contains('open')) {
-    loginForm.classList.remove('open'); // Close the form if it's already open
-  } else {
-    loginForm.classList.add('open'); // Open the form
-  }
-});
