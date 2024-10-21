@@ -78,7 +78,7 @@ footer {
     align-items: center;
     width: 100%;
     max-width: 1200px;
-    padding: 0 20px;
+    padding: 0 3.33rem;
 }
 
 .footer-contact {
@@ -90,24 +90,24 @@ footer {
 .contact-item {
     display: flex;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 1.25rem;
 }
 
 .contact-item p {
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-top: 15px;
+    margin-left: .95rem;
+    margin-right: .95rem;
+    margin-top: .95rem;
 
 }
 
 .footer img {
-    margin-right: 10px;
+    margin-right: .60rem;
 }
 
 .githubLogo,
 .linkedInLogo,
 .emailLogo {
-    height: 30px;
+    height: 1.87rem;
     justify-content: space-between;
     align-items: center;
     margin: auto;
@@ -115,7 +115,7 @@ footer {
 
 #coquiNavLogo {
     height: 75px;
-    margin-right: 20px;
+    margin-right: 1.25rem;
 }
 
 .footer img:hover {
@@ -432,7 +432,7 @@ nav#menu {
 }
 
 .wlcm-msg h1 {
-    font-size: 70px;
+    font-size: 4.37rem;
     text-align: center;
     text-transform: uppercase;
     opacity: 0.75;
@@ -441,7 +441,7 @@ nav#menu {
 
 .wlcm-msg p {
     font-family: var(--font-family-base);
-    font-size: 20px;
+    font-size: 1.25rem;
     opacity: 0.75;
 }
 
@@ -647,7 +647,7 @@ nav#menu {
 
 .signup-msg h1 {
     font-family: var(--font-family-title);
-    font-size: 65px;
+    font-size: 4rem;
     color: var(--color-text);
     opacity: 0.75;
     margin-top: 50px;
@@ -682,4 +682,54 @@ nav#menu {
     margin-bottom: 15px;
     padding: 10px;
     width: 300px;
+}
+
+/* Home Page Stylization */
+
+/* Set the size of the div element that contains the map */
+#map {
+    height: 400px; /* The height is 400 pixels */
+    width: 100%; /* The width is the width of the web page */
+}
+
+/* Event Creation Styling */
+
+.eventCreation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.eventLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#event-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.5;
+}
+
+.eventCreationForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
 }
