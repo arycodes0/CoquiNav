@@ -1,15 +1,37 @@
-<!-- Home page template -->
+<!-- Profile page template -->
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <main>
-        <section id="map">
-            <!-- Map to be added dynamically using Google Maps -->
-        </section>
-        <section id="map-pin">
-            <!-- Map pins and info card to be added dynamically -->
-        </section>
-    </main>
+<div class="profileContainer">
+    <!-- Low Poly Map -->
+    <section class="profileMap">
+        <img id="profile-map" src="{{ url_for('static', filename='/images/lowpoly_prMap.png') }}" alt="Green Mountains">
+    </section>
+    <section class="userProfile">
+        <form class="profileForm">
+            <!-- User Name -->
+             <div class="userName">
+                <input type="text" id="nameBox" placeholder="">
+             </div>
+            <!-- Email -->
+             <div class="userEmail">
+                <input type="text" id="emailBox" placeholder="">
+             </div>
+            <!-- Password -->
+             <div class="userPwd">
+                <input type="password" id="pwdBox" placeholder="">
+             </div>
+            <!-- Save Changes Button -->
+             <div class="saveButton">
+                <button type="submit" id="saveButton">
+                    Save Changes
+                </button>
+             </div>
+            <!-- Delete Account Button -->
+             <div class="accountDel">
+                <button type="button" id="accountDel">Delete Account</button>
+             </div>
+        </form>
+    </section>
 </div>
 {% endblock %}
