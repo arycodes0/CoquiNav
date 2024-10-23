@@ -239,7 +239,7 @@ footer {
     transition: background-color 0.3s ease;
 }
 
-#eventAdder:hover, #loginButton:hover, #signupButton:hover {
+.eventAdder:hover, .loginButton:hover, .signupButton:hover {
     background-color: var(--color-hover);
 }
 
@@ -449,10 +449,11 @@ nav#menu {
 .login-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px auto;
+    grid-template-rows: 300px;
     align-items: center;
     justify-items: center; 
     min-height: 100vh;
+    max-height: 700px;
     background-color: var(--color-primary);
     padding: 0;
     margin: 0;
@@ -470,9 +471,9 @@ nav#menu {
     justify-content: center;
     align-items: center;
     z-index: 2;
-    padding: 20px;
+    padding: 0;
     gap: 20px;
-    margin-bottom: 400px;
+    padding-bottom: 600px;
 }
 
 
@@ -484,7 +485,8 @@ nav#menu {
     grid-row: 1;
     font-family: var(--font-family-title);
     color: var(--color-text);
-    padding-top: 300px;
+    padding: 0;
+    padding-top: 100px;
     text-align: center;
 }
 
@@ -493,7 +495,8 @@ nav#menu {
     text-align: center;
     text-transform: uppercase;
     opacity: 0.75;
-    padding-bottom: 50px;
+    padding: 0;
+    padding-top: -90px;
 }
 
 .wlcm-msg p {
@@ -574,13 +577,13 @@ nav#menu {
     text-align: center;
     text-transform: uppercase;
     font-family: var(--font-family-base);
-    color: #506650; /* Deep Green for text */
-    background-color: #F2F7F4; /* Light Green for button background */
-    border: 3px solid #A3C1AD; /* Regular green border for all sides */
+    color: #506650;
+    background-color: #F2F7F4;
+    border: 3px solid #A3C1AD;
     border-radius: 25px;
     padding: 10px 20px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(122, 135, 135, 0.15); /* Slight shadow */
+    box-shadow: 0 4px 8px rgba(122, 135, 135, 0.15);
     transition: all 0.2s ease;
 }
 
@@ -591,25 +594,25 @@ nav#menu {
     bottom: 6px;
     left: 0;
     right: 0;
-    height: 8px; /* Thickness of the bottom border */
-    background-color: #A3C1AD; /* Green color for bottom border */
-    z-index: 2; /* Ensure it appears behind the button */
+    height: 8px;
+    background-color: #A3C1AD;
+    z-index: 2;
     transition: all 0.2s ease;
-    opacity: 1; /* Make sure it's always visible */
+    opacity: 1;
 }
 
 /* Hover State */
 #submit-button:hover {
-    background-color: #A3C1AD; /* Lighter green on hover */
-    color: #F2F7F4; /* Text changes to light green */
+    background-color: #A3C1AD;
+    color: #F2F7F4;
     box-shadow: 0 5px 10px rgba(122, 135, 135, 0.2);
 }
 
 /* Active State (click down animation) */
 #submit-button:active {
-    transform: translateY(4px); /* Button click-down effect */
-    background-color: #506650;  /* Darker green for active state */
-    border-color: #506650;      /* Matching border on click */
+    transform: translateY(4px);
+    background-color: #506650;
+    border-color: #506650;
     box-shadow: 0 2px 8px rgba(122, 135, 135, 0.2);
 }
 
@@ -635,13 +638,14 @@ nav#menu {
     justify-content: center;
     align-items: center;
     max-height: 100%;
+    max-width: 760px;
     z-index: 1; 
     padding-top: 600px;
     position: static;
 }
 
 .log-in-map img {
-    width: 1000px;
+    width: 100%;
     height: auto;
     object-fit: cover;
     overflow: hidden;
