@@ -24,31 +24,39 @@
   </div>
 
   <!-- Logo and other sections -->
-  <section id="logo-img">
-    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
-      <div id="coquiNav">
-        <h1>COQUI NAV</h1>
-      </div>
+  <section class="brandingContainer">
+    <div id="logo-img">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+    </div>
+    <div id="coquiNav">
+      <h1>COQUI</h1>
+      <h1>NAV</h1>
+    </div>
   </section>
 
-  <div class="search-container">
-    <input type="text" class="search-box" id="search" placeholder="Search...">
-    <div class="suggestions" id="suggestions">
+  <section class="searBar">
+    <!-- Keyword Search Bar -->
+    <div class="search-container">
+      <input type="text" class="search-box" id="search" placeholder="Search...">
+      <div class="suggestions" id="suggestions">
         <ul>
-            <!-- Dynamic suggestions will appear here -->
-        </ul>
-    </div>
-</div>
-
-<div class="location-container">
-  <input type="text" class="search-box" id="search" placeholder="Enter location...">
-  <div class="suggestions" id="suggestions">
-      <ul>
           <!-- Dynamic suggestions will appear here -->
-      </ul>
-  </div>
-</div>
+        </ul>
+      </div>
+    </div>
 
+    <!-- Location Search Bar -->
+    <div class="location-container">
+      <input type="text" class="search-box" id="search" placeholder="Enter location...">
+      <div class="suggestions" id="suggestions">
+          <ul>
+              <!-- Dynamic suggestions will appear here -->
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buttons -->
   <section id="event-adder">
       <button class="eventAdder">Add Event</button>
   </section>
