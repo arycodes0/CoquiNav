@@ -2,40 +2,40 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <section class="eventCreation">
-        <!-- Branding image -->
-        <section class="eventLogo">
-            <img id="event-img" src="{{ url_for('static', filename='/images/greenLogo.png') }}" alt="Green Mountains">
-        </section>
-        <form class="eventCreationForm">
-            <!-- Event Tittle Box -->
-            <div class="eventTitle">
-                <input type="text" id="titleBox" placeholder="Enter Event Title">
-            </div>
-            <!-- Event Date Box-->
-            <div class="eventDate">
-                <input type="date" id="dateBox" placeholder="Enter Event Date">
-            </div>
-            <!-- Event Time Box -->
-            <div class="eventTime">
-                <input type="time" id="timeBox" placeholder="Enter Event Start Time">
-            </div>
-            <!-- Event Location -->
-            <div class="eventLocation">
-                <input type="text" id="locationBox" placeholder="Enter Event Location">
-            </div>
-            <!-- Event Description -->
-            <div class="eventDescription">
-                <input type="text" id="descriptionBox" placeholder="Enter Event Description">
-            </div>
-            <!-- Create Event Description -->
-            <div class="createEventButton">
-                <button type="submit" id="submitButton">
-                    <i></i> Create Event
-                </button>
-            </div>
-        </form>
+<section class="eventCreation">
+    <!-- Branding image -->
+    <section class="eventLogo">
+        <img id="event-img" src="{{ url_for('static', filename='/images/lowpoly_prMap.png') }}" alt="Green Mountains">
     </section>
-</div>
+    <form class="eventCreationForm">
+        <!-- Event Tittle Box -->
+        <div class="eventTitle">
+            <input type="text" id="titleBox" placeholder="Enter Event Title">
+        </div>
+        <!-- Event Date Box-->
+        <div class="eventDate">
+            <input type="date" id="dateBox" placeholder="Choose Date">
+            <p>Event Date</p>
+        </div>
+        <!-- Event Time Box -->
+        <div class="eventTime">
+            <input type="time" id="timeBox" placeholder="Start Time">
+            <p>Start Time</p>
+        </div>
+        <!-- Event Location -->
+        <div class="eventLocation">
+            <input type="text" id="locationBox" placeholder="Enter Event Location">
+        </div>
+        <!-- Event Description -->
+        <div class="eventDescription">
+            <input type="text" id="descriptionBox" placeholder="Enter Event Description">
+        </div>
+        <!-- Create Event Description -->
+        <div class="createEventButton">
+            <button type="submit" id="submitButton">
+                <i></i> Create Event
+            </button>
+        </div>
+    </form>
+</section>
 {% endblock %}

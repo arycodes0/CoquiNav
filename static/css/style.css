@@ -20,25 +20,39 @@ Styling for COQUI NAV
     --header-button-padding: 8px 35px;
     --header-button-margins: 5px 10px;
 }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body, html {
     margin: 0;
     padding: 0;
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     box-sizing: border-box;
     flex-direction: column;
 }
 
-main {
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-    display: block;
+body {
+    display: flex;
     flex-direction: column;
-    background-color: var(--color-primary);
-    object-fit: contain;
+    min-height: 100vh;
+    font-size: 1rem;
+    align-items: center;
 }
 
+main {
+    padding: 0 2rem;
+    margin: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-primary);
+    overflow: hidden;
+}
 
 /* Header and Footer Styling */
 
@@ -66,8 +80,8 @@ footer {
     width: 100%;
     margin: 0;
     box-sizing: border-box;
-    height: 100px;
-    z-index: 1001;
+    height: 4rem;
+    z-index: 5;
     position: fixed;
     bottom: 0;
 }
@@ -126,11 +140,6 @@ footer {
 
 
 /* Header Menu */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 /* Coqui Nav Logo and Name */
 
 /* Logo Section */
@@ -695,41 +704,255 @@ nav#menu {
 /* Event Creation Styling */
 
 .eventCreation {
-    display: flex;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
     overflow: hidden;
+    border-radius: 1.25rem;
+    padding: 0;
+    width: 100%;
+    z-index: 0;
+
 }
 
 .eventLogo {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    max-height: 100%;
+    z-index: 1; 
+    position: relative;
+    padding-top: 30%;
+    padding-right: 30%;
+    overflow: hidden;
+}
+
+#event-img {
+    width: 1000px;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
     z-index: 1;
 }
 
-#event-img img {
+.eventCreationForm {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-row: 1 / -1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    opacity: 0.5;
+    padding: 0%;
+    padding-bottom: 15%;
+    padding-top: 10%;
 }
 
-.eventCreationForm {
+/* Form inputs styling */
+.eventCreationForm input {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 0.625rem;
+    padding: 1rem;
+    margin-bottom: 0.93rem;
+    width: 100%;
+    max-width: 31.25rem;
+    font-size: 1rem;
+    font-family: var(--font-family-base);
+    outline: none;
+    align-items: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Event title input styling */
+.eventTitle input {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+    color: var(--color-text);
+    align-content: center;
+}
+
+/* Styling date and time inputs side by side */
+.eventDate,
+.eventTime {
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    color: var(--color-text);
+}
+
+.eventTime {
+    margin-right: 0;
+}
+
+.eventDate p {
+    text-align: center;
+    color: var(--color-text);
+    opacity: 70%;
+    padding-right: 10%;
+}
+
+.eventTime p {
+    text-align: center;
+    color: var(--color-text);
+    opacity: 70%;
+    padding-right: 10%;
+}
+
+#dateBox, #timeBox {
+    text-align: center;
+}
+
+#locationBox {
+    text-align: center;
+}
+
+/* Event description input */
+
+#descriptionBox {
+    resize: vertical;
+    height: 6.25rem;
+    font-size: 1rem;
+    padding: 1.25rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Create Event Button styling */
+.createEventButton {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#submitButton {
+    background-color: #6C9065;
+    color: var(--color-footer);
+    padding: 0.9375rem 2.5rem;
+    border: none;
+    border-radius: 1.5625rem;
+    font-size: 1.125rem;
+    cursor: pointer;
+    margin-top: 1.25rem;
+}
+
+#submitButton:hover {
+    background-color: #598d58;
+}
+
+/* Profile Page Styling */
+
+/* Container for the whole profile section */
+.profileContainer {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
     position: relative;
     overflow: hidden;
+    border-radius: 1.25rem;
+    padding: 0;
+    width: 100%;
+    z-index: 0;
+}
+
+/* Map section (left) */
+.profileMap {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-height: 100%;
+    z-index: 1; 
+    position: relative;
+    padding-top: 30%;
+    padding-right: 30%;
+    overflow: hidden;
+}
+
+#profile-map {
+    width: 1000px;
+    height: auto;
+    object-fit: cover;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Form container (right) */
+.userProfile {
+    width: 100%;
+    display: flex;
+    grid-column: 1 / -1;
+    grid-row: 1 / -2;
+    justify-content: center;
+    align-items: center;
     z-index: 2;
+    position: relative;
+    overflow: hidden;
+}
+
+.profileForm {
+    max-width: 2000px;
+    width: 50%;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: var(--color-footer);
+}
+
+/* Input fields styling */
+.profileForm input[type="text"], 
+.profileForm input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 1.50rem;
+    border: 0;
+    box-sizing: border-box;
+    background-color: var(--color-button-bg);
+    text-align: center;
+}
+
+/* Buttons styling */
+.profileForm button {
+    width: 100%;
+    padding: 10px;
+    margin: 20px 10px;
+    background-color: #90a789;
+    color: var(--color-text);
+    opacity: 75%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    align-items: center;
+    align-content: center;
+}
+
+.saveButton, .accountDel {
+    display: inline-block;
+    align-items: center;
+    align-content: center;
+
+}
+
+#saveButton:hover, 
+#accountDel:hover {
+    background-color: #6c866c;
 }
