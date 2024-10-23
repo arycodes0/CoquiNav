@@ -8,28 +8,37 @@
         <img id="event-img" src="{{ url_for('static', filename='/images/lowpoly_prMap.png') }}" alt="Green Mountains">
     </section>
     <form class="eventCreationForm">
+        <section class="eventMsg">
+            <h1>Enter Event Details Below</h1>
+        </section>
         <!-- Event Tittle Box -->
         <div class="eventTitle">
             <input type="text" id="titleBox" placeholder="Enter Event Title">
         </div>
+
         <!-- Event Date Box-->
-        <div class="eventDate">
-            <input type="date" id="dateBox" placeholder="Choose Date">
-            <p>Event Date</p>
-        </div>
-        <!-- Event Time Box -->
-        <div class="eventTime">
-            <input type="time" id="timeBox" placeholder="Start Time">
-            <p>Start Time</p>
-        </div>
+        <section class="timeDateBox">
+            <div class="eventDate">
+                <input type="date" id="dateBox" placeholder="Choose Date">
+                <p>Event Date</p>
+            </div>
+            <!-- Event Time Box -->
+            <div class="eventTime">
+                <input type="time" id="timeBox" placeholder="Start Time">
+                <p>Start Time</p>
+            </div>            
+        </section>
+
         <!-- Event Location -->
         <div class="eventLocation">
             <input type="text" id="locationBox" placeholder="Enter Event Location">
         </div>
+
         <!-- Event Description -->
         <div class="eventDescription">
             <input type="text" id="descriptionBox" placeholder="Enter Event Description">
         </div>
+
         <!-- Create Event Description -->
         <div class="createEventButton">
             <button type="submit" id="submitButton">
