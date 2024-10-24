@@ -8,7 +8,7 @@
         <img id="profile-map" src="{{ url_for('static', filename='/images/lowpoly_prMap.png') }}" alt="Green Mountains">
     </section>
     <section class="userProfile">
-      <h2>Edit Profile</h2>
+      <h2>Edit Details</h2>
         <form class="profileForm">
             <!-- User Name -->
              <div class="userName">
@@ -22,17 +22,30 @@
              <div class="userPwd">
                 <input type="password" id="pwdBox" placeholder="Default Password">
              </div>
-            <!-- Save Changes Button -->
-             <div class="saveButton">
-                <button type="submit" id="saveButton">
-                    Save Changes
-                </button>
-             </div>
+            <div class="btn-container">
+               <!-- Save Changes Button -->
+                <div class="saveButton">
+                  <button type="submit" id="saveButton">Save Changes</button>
+               </div>
             <!-- Delete Account Button -->
-             <div class="accountDel">
-                <button type="button" id="accountDel">Delete Account</button>
-             </div>
+               <div class="accountDel">
+                  <button type="button" id="accountDel">Delete Account</button>
+               </div>   
+            </div>
         </form>
     </section>
+   <section class="location-profile">
+      <h2>Edit Location</h2>
+      <form class="editLocation">
+         <!-- Location -->
+         <div class="profileLocation">
+            <input type="text" id="locationBar" placeholder="Default Location">
+         </div>
+         <!-- Save LocationChanges Button -->
+         <div class="locationSaveButton">
+            <button type="submit" id="locationButton"> Save Changes</button>
+         </div>      
+      </form>
+   </section>
 </div>
 {% endblock %}

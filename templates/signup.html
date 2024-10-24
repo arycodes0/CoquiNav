@@ -4,75 +4,87 @@
  {% block content %}
 
  <div class="signupPage-container">
-    <main>
-        <!-- Branding image -->
-         <section class="greenLogo">
-            <img id="bg-img" src="{{ url_for('static', filename='/images/greenLogo.png') }}" alt="Green Mountains">
-         </section>
-         <!-- Welcome Msg -->
-          <section class="signup-msg">
-            <h1>Join your community...</h1>
-          </section>
-         <!-- Sign up form-->
-          <section class="signup-form">
-                <div class="name-input">
-                    <!-- First name -->
-                  <input type="first-name" class="form-control" id="first-name" placeholder="First Name" name="first-name">
-                </div>
-                <div class="lastName-form">
-                    <!-- Last Name -->
-                  <input type="last-name" class="form-control" id="last-name" placeholder="Last name" name="last-name">
-                </div>
-                <div class="email-form">
-                    <!-- Email -->
-                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-                  </div>
-                <div class="pwd-form">
-                    <!-- Password-->
-                     <input type="pwd" class="form-control" id="pwd" placeholder="New password" name="pwd">
-                </div>
-                <div class="birthdate-container">
-                    <div class="datepicker-container">
-                        <select class="form-select" id="month" aria-label="Select Month">
-                            <option selected>Month</option>
-                            <option value="1">January</option>
-                            <option value="2">February</option>
-                            <option value="3">March</option>
-                            <option value="4">April</option>
-                            <option value="5">May</option>
-                            <option value="6">June</option>
-                            <option value="7">July</option>
-                            <option value="8">August</option>
-                            <option value="9">September</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
-                        </select>
-                        <!-- Day Dropdown -->
-                         <select class="form-select" id="day" aria-label="Select Day">
-                            <option selected>Day</option>
-                            <!-- Days will be populated dynamically -->
-                         </select>
-                        <!-- Year Dropdown -->
-                        <select class="form-select" id="year" aria-label="Select Year">
-                            <option selected>Year</option>
-                            <!-- Years will be populated dynamically -->
-                        </select>
-                    </div>
-                </div>
-                <div class="host-checkbox">
-                  <label><input type="checkbox" name="remember">Do you want to host?</label>
-                </div>
-                <button type="submit">Submit</button>
-              </form>
-          </section>
-          <!-- Modal Popup -->
-           <section class="error-msg">
-            <div class="error-content">
-              <span class="close-btn">X</span>
-              <p>Details already in system.</p>
-            </div>
-           </section>
-    </main>
- </div>
+  <!-- Branding image -->
+  <section class="greenLogo">
+    <img id="bg-img" src="{{ url_for('static', filename='/images/greenLogo.png') }}" alt="Green Mountains">
+  </section>
+  <!-- Welcome Msg -->
+  <section class="signup-msg">
+    <h1>Join your community...</h1>
+  </section>
+  <form id="signupForm">
+    <!-- Sign up form-->
+    <section class="signup-form">
+      <div class="name-input">
+      <!-- First name -->
+        <input type="first-name" class="form-control" id="first-name" placeholder="First Name" name="first-name">
+      </div>
+      <div class="lastName-form">
+        <!-- Last Name -->
+        <input type="last-name" class="form-control" id="last-name" placeholder="Last name" name="last-name">
+      </div>
+      <div class="email-form">
+        <!-- Email -->
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="pwd-form">
+      <!-- Password-->
+        <input type="pwd" class="form-control" id="pwd" placeholder="New password" name="pwd">
+      </div>
+      <div class="birthdate-container">
+        <div class="datepicker-container">
+          <select class="form-select" id="month" aria-label="Select Month">
+            <option selected>Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+        </select>
+          <!-- Day Dropdown -->
+        <select class="form-select" id="day" aria-label="Select Day">
+          <option selected>Day</option>
+          <!-- Days will be populated dynamically -->
+        </select>
+        <!-- Year Dropdown -->
+        <select class="form-select" id="year" aria-label="Select Year">
+          <option selected>Year</option>
+          <!-- Years will be populated dynamically -->
+        </select>
+        </div>
+    </div>
+    <div class="host-checkbox">
+      <label class="hostCheckbox">
+          <input type="checkbox" name="remember" class="hiddenCheckbox">
+          <span class="checkmark"></span>
+          Do you want to be a host?
+      </label>
+  </div>
+
+    <!-- Submit Button -->
+    <div class="submit-container">
+      <button type="submit" class="signupSubmit">Sign Up</button>  
+    </div>
+  </form>
+  </section>
+  <!-- Modal Popup -->
+  <section class="error-msg" id="errorModal">
+    <div class="error-content">
+      <div id="xBtn">
+        <span class="close-btn" id="closeModal">X</span> 
+      </div>
+
+      <div id="pMsg">
+        <p>Details already in system.</p>    
+      </div>
+    </div>
+  </section>
+</div>
  {% endblock %}
