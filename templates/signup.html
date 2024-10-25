@@ -10,7 +10,8 @@
   </section>
   <!-- Welcome Msg -->
   <section class="signup-msg">
-    <h1>Join your community...</h1>
+    <h1>Join the community...</h1>
+    <p>Enter details below</p>
   </section>
   <form id="signupForm">
     <!-- Sign up form-->
@@ -31,8 +32,10 @@
       <!-- Password-->
         <input type="pwd" class="form-control" id="pwd" placeholder="New password" name="pwd">
       </div>
-      <div class="birthdate-container">
-        <div class="datepicker-container">
+      <div class="datepicker-container">
+
+        <!-- Month Dropdown -->
+        <div class="monthPicker">
           <select class="form-select" id="month" aria-label="Select Month">
             <option selected>Month</option>
             <option value="1">January</option>
@@ -47,19 +50,25 @@
             <option value="10">October</option>
             <option value="11">November</option>
             <option value="12">December</option>
-        </select>
-          <!-- Day Dropdown -->
-        <select class="form-select" id="day" aria-label="Select Day">
-          <option selected>Day</option>
-          <!-- Days will be populated dynamically -->
-        </select>
-        <!-- Year Dropdown -->
-        <select class="form-select" id="year" aria-label="Select Year">
-          <option selected>Year</option>
-          <!-- Years will be populated dynamically -->
-        </select>
+          </select>
         </div>
-    </div>
+
+        <!-- Day Dropdown -->
+        <div class="dayPicker">
+          <select class="form-select" id="day" aria-label="Select Day">
+            <option selected>Day</option>
+            <!-- Days will be populated dynamically -->
+          </select>          
+        </div>
+
+        <!-- Year Dropdown -->
+        <div class="yearPicker">
+          <select class="form-select" id="year" aria-label="Select Year">
+            <option selected>Year</option>
+            <!-- Years will be populated dynamically -->
+          </select>          
+        </div>
+      </div>
     <div class="host-checkbox">
       <label class="hostCheckbox">
           <input type="checkbox" name="remember" class="hiddenCheckbox">

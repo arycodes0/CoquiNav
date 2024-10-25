@@ -1,5 +1,4 @@
 // File contains all main app scripts for CoquiNav website
-
 //Verify user data 
 async function verifyUserData(userId, email, password) {
   const userRef = doc(database, 'users', userId);
@@ -86,12 +85,11 @@ async function handleLogin(email, password) {
 }
 
 //Home Page
-
-// Google maps api, copied directly from google
 // Initialize and add the map
 let map;
 
 async function initMap() {
+  console.log("initMap called");
   // The location of Uluru
   const position = { lat: -25.344, lng: 131.031 };
   // Request needed libraries.
@@ -103,7 +101,6 @@ async function initMap() {
   map = new Map(document.getElementById("map"), {
     zoom: 4,
     center: position,
-    mapId: "DEMO_MAP_ID",
   });
 
   // The marker, positioned at Uluru
@@ -114,12 +111,15 @@ async function initMap() {
   });
 }
 
-initMap();
+
+
+//Event Page
+
 
 //DOMContentLoaded Event Listener
 document.addEventListener('DOMContentLoaded', async () => {
   console.log('DOM fully loaded and parsed.');
-
+  initMap();
     // Event listener for the Join Us button
     const joinusButton = document.querySelector('.joinusButton');
     console.log(joinusButton);
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
       });
     }
-      
+
 
     // Event listener to handle log in button
     const loginButton = document.querySelector('.loginButton');
@@ -245,4 +245,66 @@ document.addEventListener('DOMContentLoaded', async () => {
           }
       });
   });
+
+  // Get references to the month, day, and year dropdowns
+  const monthSelect = document.getElementById("month");
+  const daySelect = document.getElementById("day");
+  const yearSelect = document.getElementById("year");
+
+  // Function to populate the year dropdown
+  function populateYears() {
+      const currentYear = new Date().getFullYear();
+      const earliestYear = 1900;
+
+      for (let year = currentYear; year >= earliestYear; year--) {
+          let option = document.createElement("option");
+          option.value = year;
+          option.textContent = year;
+          yearSelect.appendChild(option);
+      }
+  }
+
+  // Function to populate the days based on the selected month
+  function populateDays(month) {
+      daySelect.innerHTML = ""; // Clear existing options
+      let daysInMonth = 31; // Default to 31 days
+
+      // Adjust the number of days based on the selected month
+      if (month === 2) { // February
+          daysInMonth = 28; // Adjust for February
+          // Consider adding logic for leap years if needed
+      } else if ([4, 6, 9, 11].includes(month)) { // April, June, September, November
+          daysInMonth = 30; // Adjust for months with 30 days
+      }
+
+      // Add default "Day" option
+      let defaultOption = document.createElement("option");
+      defaultOption.textContent = "Day";
+      defaultOption.selected = true;
+      daySelect.appendChild(defaultOption);
+
+      // Populate the days dynamically
+      for (let day = 1; day <= daysInMonth; day++) {
+          let option = document.createElement("option");
+          option.value = day;
+          option.textContent = day;
+          daySelect.appendChild(option);
+      }
+  }
+
+  // Populate days with default 31 on page load for January
+  populateDays(1); // Default to January
+
+  // Event listener to update the days when the month changes
+  monthSelect.addEventListener("change", () => {
+      const selectedMonth = parseInt(monthSelect.value);
+      // Only call populateDays if a valid month is selected
+      if (selectedMonth >= 1 && selectedMonth <= 12) {
+          populateDays(selectedMonth);
+      }
+  });
+
+  // Populate years on page load
+  populateYears();
+
 })
