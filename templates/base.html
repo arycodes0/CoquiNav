@@ -35,7 +35,7 @@
                 }));
             d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n));
         })({
-            key: "API-KEY",
+            key: "",
             v: "weekly",
         });
     </script>
@@ -53,11 +53,11 @@
 
     <!--Footer-->
     {% include 'footer.html' %}
+
+    <script src="{{ url_for('serve_dist', filename='bundle.js') }}"></script>
+
     <!--Link to bootstrap CDN JS via jsDelivr-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
-
-    <!-- Custom JS -->
-    <script type="module" src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>
 </html>

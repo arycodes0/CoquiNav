@@ -3,5 +3,11 @@ __pycache__
 config
 coquinav_firebase_config.json
 .DS_Store
-node_module
+node_modules
 bourbon
+firebase-config.js
+package-lock.json
+package.json
+.package-lock.json
+node_modules/@firebase
+node_modules
