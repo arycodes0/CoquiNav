@@ -1,6 +1,6 @@
 # Entry point of the Flask application.
 from flask import Flask, render_template, request, redirect, url_for, flash, session
-from firebase_auth import create_user, login_user  # Assuming login_user is implemented for authentication
+from firebase_auth import create_user, login_user
 import os
 
 app = Flask(__name__)
@@ -16,9 +16,9 @@ def index():
         flash('Please log in to access this page.', 'info')
         return redirect(url_for('login'))
 
-# Route for user registration.
-@app.route('/register', methods=['GET', 'POST'])
-def register():
+# Route for user signup/registration.
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
     if request.method == 'POST':
         email = request.form.get('email')
         password = request.form.get('password')
@@ -26,18 +26,18 @@ def register():
         # Validate input
         if not email or not password:
             flash('Email and password are required.', 'danger')
-            return redirect(url_for('register'))
+            return redirect(url_for('signup'))
 
         # Create a user in Firebase
         user = create_user(email, password)
         
         if user:
-            flash('Registration successful! Please log in.', 'success')
+            flash('Signup successful! Please log in.', 'success')
             return redirect(url_for('login'))
         else:
-            flash('Registration failed. Please try again.', 'danger')
+            flash('Signup failed. Please try again.', 'danger')
 
-    return render_template('register.html')
+    return render_template('signup.html')  # Render signup.html for both GET and POST requests
 
 # Route for user login.
 @app.route('/login', methods=['GET', 'POST'])
@@ -52,7 +52,7 @@ def login():
             return redirect(url_for('login'))
 
         # Authenticate user with Firebase
-        user = login_user(email, password)  # Assuming login_user function is implemented
+        user = login_user(email, password)
 
         if user:
             session['user'] = email  # Save user session
@@ -62,11 +62,6 @@ def login():
             flash('Login failed. Please check your credentials and try again.', 'danger')
 
     return render_template('login.html')
-
-# Route for user signup (alias to register page).
-@app.route('/signup')
-def signup():
-    return redirect(url_for('register'))
 
 # Route for user logout.
 @app.route('/logout')
