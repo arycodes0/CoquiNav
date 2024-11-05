@@ -24,7 +24,7 @@
   </div>
 
   <!-- Logo and other sections -->
-  <section class="brandingContainer">
+  <section id="brandingContainer">
     <div id="logo-img">
       <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
     </div>
@@ -36,8 +36,8 @@
 
   <section class="searBar">
     <!-- Keyword Search Bar -->
-    <div class="search-container">
-      <input type="text" class="search-box" id="search" placeholder="Search...">
+    <div id="search-container">
+      <input type="text" class="search-box" id="textSearch" placeholder="Search...">
       <div class="suggestions" id="suggestions">
         <ul>
           <!-- Dynamic suggestions will appear here -->
@@ -46,8 +46,8 @@
     </div>
 
     <!-- Location Search Bar -->
-    <div class="location-container">
-      <input type="text" class="search-box" id="search" placeholder="Enter location...">
+    <div id="location-container">
+      <input type="text" class="search-box" id="locationSearch" placeholder="Enter location...">
       <div class="suggestions" id="suggestions">
           <ul>
               <!-- Dynamic suggestions will appear here -->
@@ -61,11 +61,13 @@
       <button class="eventAdder"><span class="addEvent">+</span></button>
   </section>
 
-  <section id="login">
-      <button class="loginButton">Log In</button>
-  </section>
+  <section id="loginSignupButton">
+    <section id="login">
+        <button class="loginButton">Log In</button>
+    </section>
 
-  <section id="signup">
-      <button class="signupButton">Sign Up</button>
+    <section id="signup">
+        <button class="signupButton">Sign Up</button>
+    </section>    
   </section>
 </header>

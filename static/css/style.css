@@ -8,7 +8,7 @@ Styling for COQUI NAV
     --color-header: #9CBA9D;
     --color-primary: #F2F7F4;
     --color-footer: #9CBA9D;
-    --color-text: #1E1E1E;
+    --color-text: rgba(30, 30, 30, 0.8);
     --color-hover: #799a9c;
     --color-button-bg: #F2F7F4;
     --color-form-bg: #e5e8e6;
@@ -154,9 +154,10 @@ footer {
 
 /* Coqui Nav Logo and Name */
 /* Logo Section */
-.brandingContainer {
+#brandingContainer {
     display: flex;
     flex-direction: row;
+    flex-shrink: 0;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
@@ -204,20 +205,21 @@ footer {
 
 /* Filter Section */
 .searchBar {
+    display: none;
     display: inline-flex;
     align-items: center;
+    align-content: center;
     max-width: 500px;
-    max-height: 500px;
+    max-height: 550px;
 }
 
-.search-container, .location-container {
-    float: left;
+#search-container, #location-container {
     margin: 1rem;
-    padding-left: 0.80rem;
-    padding-top: 0.80rem;
+    width: 400px;
+    height: 45px;
 }
 
-#search {
+#textSearch, #locationSearch {
     border-radius: 50px;
     text-align: center;
     background-color: var(--color-button-bg);
@@ -227,13 +229,17 @@ footer {
     height: 40px;
     box-shadow: 0 8px 16px rgba(0, 0.5, 0, 0.5);
     transition: background-color 0.5s ease, transform 0.5s ease-in-out;
+    width: 360px;
+    height: auto;
 }
 
 /* Event Adder, Log In, and Sign Up Buttons */
 #event-adder, #login, #signup {
-    display: flex;
+    display: none;
     align-items: center;
     opacity: 0.75;
+    flex-shrink: 0;
+    font-family: var(--font-family-base);
 }
 
 .loginButton, .signupButton {
@@ -250,6 +256,10 @@ footer {
     width: 90px;
     box-shadow: 0 8px 16px rgba(0, 0.5, 0, 0.5);
     transition: background-color 0.5s ease, transform 0.5s ease-in-out;
+}
+
+#login {
+    right: -50px;
 }
 
 .eventAdder:hover, .loginButton:hover, .signupButton:hover {
@@ -289,6 +299,7 @@ footer {
 
 /* Hamburger Menu Wrapper */
 #menuToggle {
+    display: none;
     position: relative;
     z-index: 2;
 }
@@ -560,7 +571,7 @@ nav#menu {
     grid-row: 2;
 }
 
-.login-form {
+#login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -828,7 +839,7 @@ nav#menu {
     font-size: 1rem;
 }
 
-.checkmark {
+.hostCheckmark {
     width: 20px;
     height: 20px;
     background-color: rgba(144, 167, 137, .75);
@@ -841,12 +852,12 @@ nav#menu {
 }
 
 /* Add a checkmark when the checkbox is checked */
-.hiddenCheckbox:checked + .checkmark {
+.hiddenCheckbox:checked + .hostCheckmark {
     background-color: var(--color-green-btn);
 }
 
 /* Add the checkmark (tick) */
-.checkmark:after {
+.hostCheckmark:after {
     content: "";
     position: absolute;
     display: none;
@@ -860,7 +871,7 @@ nav#menu {
 }
 
 /* Show the checkmark (tick) when the checkbox is checked */
-.hiddenCheckbox:checked + .checkmark:after {
+.hiddenCheckbox:checked + .hostCheckmark:after {
     display: block;
 }
 
@@ -994,7 +1005,7 @@ nav#menu {
     z-index: 1;
 }
 
-.eventCreationForm {
+#eventCreationForm {
     display: grid;
     grid-column: 1 / -1;
     grid-row: 1 / -1;
@@ -1010,14 +1021,14 @@ nav#menu {
     padding-top: 2.5rem;
 }
 
-.eventCreationForm h1 {
+#eventCreationForm h1 {
     font-family: var(--font-family-base);
     font-size: 2.5rem;
     padding-bottom: 0.80rem;
 }
 
 /* Form inputs styling */
-.eventCreationForm input {
+#eventCreationForm input {
     background-color: #f2f2f2;
     border: none;
     border-radius: 0.625rem;
@@ -1366,8 +1377,130 @@ nav#menu {
 
 /* Event Page */
 
-.eventContainer {
+#eventContainer {
     background-color: var(--color-primary);
     width: 100vw;
     height: 100%;
+}
+/* General container styling */
+#eventContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f0f5f0; /* Light green background */
+}
+
+/* Individual event card styling */
+#eventCard {
+    display: none;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s;
+    color: var(--color-text);
+}
+
+#eventCard:hover {
+    transform: scale(1.05);
+}
+
+/* Event title styling */
+#eventTitle {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+#eventTitle h2 {
+    font-family: var(--font-family-base);    
+}
+
+/* Host section styling */
+#eventHost {
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    color: var(--color-text);
+    text-align: center;
+}
+#eventHost h4 {
+    font-family: var(--font-family-text);
+    text-align: center;
+}
+
+/* Event description styling */
+#eventDescription {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin: 10px 0;
+}
+#eventDescription p {
+    font-family: var(--font-family-text);
+}
+
+/* Event location styling */
+#eventLocation {
+    font-size: 0.95em;
+    color: var(--color-text);
+    margin: 10px 0;
+}
+#eventLocation p {
+    font-family: var(--font-family-text);
+}
+
+/* Event date styling */
+#eventDate {
+    font-size: 0.95em;
+    color: var(--color-text);
+    margin: 10px 0;
+}
+#eventDate p {
+    font-family: var(--font-family-text);
+}
+
+/* Event time styling */
+#eventTime {
+    font-size: 0.95em;
+    color: var(--color-text);
+    margin: 10px 0;
+}
+#eventTime p {
+    font-family: var(--font-family-text);
+}
+
+/* Home Page Styling */
+
+.info-box {
+    max-width: 200px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.info-box-title {
+    font-family: var(--font-family-base);
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 0 0 8px;
+    color: var(--color-text);
+}
+
+.info-box-description {
+    font-family: var(--font-family-text);
+    font-size: 0.9em;
+    margin: 0 0 6px;
+    color: var(--color-text);
+}
+
+.info-box-host {
+    font-family: var(--font-family-text);
+    font-size: 0.85em;
+    color: var(--color-text);
+    margin-top: 10px;
 }

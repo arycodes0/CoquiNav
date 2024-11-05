@@ -1,7 +1,9 @@
 #Entry point for running the application
 from flask import Flask, render_template, send_from_directory
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
 @app.route('/dist/<path:filename>')
 def serve_dist(filename):
