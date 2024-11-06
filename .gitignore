@@ -2,3 +2,15 @@ env
 __pycache__
 config
 coquinav_firebase_config.json
+.env
+node_modules
+dataconnect
+dataconnect-generated
+firebase.json
+firestore.indexes.json
+firestore.rules
+firebase-hosting-pull-request.yml
+.firebaserc
+dist
+firebase-config.js
+.DS_Store
