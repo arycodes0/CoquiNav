@@ -618,7 +618,6 @@ nav#menu {
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    pointer-events: none;
     opacity: 1;
     transition: opacity 0.3s;
     width: 24px;
