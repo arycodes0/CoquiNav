@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="login-wrapper">
+        <!-- Branding image -->
+        <section class="log-in-map">
+            <img src="{{ url_for('static', filename='images/lowpoly_prMap.png') }}" alt="placeholder" width="460" height="345">
+        </section>
+
+        <!-- Welcome message -->
+         <div class="wlcm-msg">
+            <h1>Welcome Back!</h1>
+            <p>Welcome back, please enter your details!</p>
+         </div>
+
+        <!-- Button container for both login and signup -->
+        <div class="form-container">
+            <!-- Log in form-->
+            <div class="log-in">
+                <form id="login-form">
+                    <!-- Email Input -->
+                     <div class="input-container">
+                        <img src="/static/images/user-placeholder.png" alt="login user icon" class="input-icon"/>
+                        <input type="email" id="email" placeholder="Enter Email" name="email" required>
+                     </div>
+
+                    <!-- Paasword Input -->
+                     <div class="input-container">
+                        <img src="/static/images/lock-placeholder.png" alt="Password lock icon" class="input-icon"/>
+                        <input type="password" id="pwd" placeholder="Enter password" name="pwd" required>   
+                     </div>
+
+                    <!-- Login Button -->
+                    <button type="submit" id="submit-button">Login</button>
+                </form>
+            </div>
+            <div class="sign-up">
+                <p>Don't have an account?</p>
+                <button type="button" id="signup-button">Create Account</button>
+            </div>
+        </div>
+
+            <div id="missingInfo" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">X</span>
+                    <p>Email or password cannot be empty.</p>
+                </div>
+            </div>
+            
+            <div id="wrongInfo" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn">X</span>
+                    <p>Email or password do not match.</p>
+                </div>
+            </div> 
+</div>
+{% endblock %}

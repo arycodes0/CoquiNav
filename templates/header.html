@@ -1,0 +1,73 @@
+<header>
+  <!-- Hamburger Menu -->
+  <div id="menuToggle">
+    <!-- Hidden Checkbox -->
+    <input type="checkbox" id="menuToggleCheckbox">
+
+    <!-- Hamburger Icon -->
+    <label id="burger" for="menuToggleCheckbox">
+        <div></div>
+        <div></div>
+        <div></div>
+    </label>
+
+    <!-- Sliding Menu -->
+    <nav id="menu">
+      <ul>
+          <li class="home"><a href="#">Home</a></li>
+          <li class="events"><a href="#">Events</a></li>
+          <li class="hostEvents"><a href="#">Create Event</a></li>
+          <li class="profile"><a href="#">Profile</a></li>
+          <li class="logout"><a href="#">Logout</a></li>
+      </ul>
+  </nav>
+  </div>
+
+  <!-- Logo and other sections -->
+  <section id="brandingContainer">
+    <div id="logo-img">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+    </div>
+    <div id="coquiNav">
+      <h1>COQUI</h1>
+      <h1>NAV</h1>
+    </div>
+  </section>
+
+  <section class="searBar">
+    <!-- Keyword Search Bar -->
+    <div id="search-container">
+      <input type="text" class="search-box" id="textSearch" placeholder="Search...">
+      <div class="suggestions" id="suggestions">
+        <ul>
+          <!-- Dynamic suggestions will appear here -->
+        </ul>
+      </div>
+    </div>
+
+    <!-- Location Search Bar -->
+    <div id="location-container">
+      <input type="text" class="search-box" id="locationSearch" placeholder="Enter location...">
+      <div class="suggestions" id="suggestions">
+          <ul>
+              <!-- Dynamic suggestions will appear here -->
+          </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Buttons -->
+  <section id="event-adder">
+      <button class="eventAdder"><span class="addEvent">+</span></button>
+  </section>
+
+  <section id="loginSignupButton">
+    <section id="login">
+        <button class="loginButton">Log In</button>
+    </section>
+
+    <section id="signup">
+        <button class="signupButton">Sign Up</button>
+    </section>    
+  </section>
+</header>

@@ -1,0 +1,108 @@
+<!-- Sign up template -->
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="signupPage-container">
+  <!-- Branding image -->
+  <section class="greenLogo">
+    <img id="bg-img" src="{{ url_for('static', filename='/images/greenLogo.png') }}" alt="Green Mountains">
+  </section>
+  <!-- Welcome Msg -->
+  <section class="signup-msg">
+    <h1>Join the community...</h1>
+    <p>Enter details below</p>
+  </section>
+  <form id="signupForm">
+    <!-- Sign up form-->
+    <section class="signup-form">
+      <div class="name-input">
+        <!-- First Name -->
+        <input type="text" class="form-control" id="first-name" placeholder="First Name" name="firstName" required>
+      </div>
+      <div class="lastName-form">
+        <!-- Last Name -->
+        <input type="text" class="form-control" id="last-name" placeholder="Last Name" name="lastName" required>
+      </div>
+      <div class="email-form">
+        <!-- Email -->
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+      </div>
+      <div class="pwd-form">
+        <!-- Password -->
+        <input type="password" class="form-control" id="pwd" placeholder="New password" name="password" required>
+      </div>
+      <div class="datepicker-container">
+        <!-- Month Dropdown -->
+        <div class="monthPicker">
+          <select class="form-select" id="month" name="month" aria-label="Select Month" required>
+            <option value="" selected disabled>Month</option>
+            <option value="1">January</option>
+            <option value="2">February</option>
+            <option value="3">March</option>
+            <option value="4">April</option>
+            <option value="5">May</option>
+            <option value="6">June</option>
+            <option value="7">July</option>
+            <option value="8">August</option>
+            <option value="9">September</option>
+            <option value="10">October</option>
+            <option value="11">November</option>
+            <option value="12">December</option>
+          </select>
+        </div>
+
+        <!-- Day Dropdown -->
+        <div class="dayPicker">
+          <select class="form-select" id="day" name="day" aria-label="Select Day" required>
+            <option value="" selected disabled>Day</option>
+            <!-- Days will be populated dynamically -->
+          </select>          
+        </div>
+
+        <!-- Year Dropdown -->
+        <div class="yearPicker">
+          <select class="form-select" id="year" name="year" aria-label="Select Year" required>
+            <option value="" selected disabled>Year</option>
+            <!-- Years will be populated dynamically -->
+          </select>          
+        </div>
+      </div>
+      <div class="host-checkbox">
+        <label class="hostCheckbox">
+          <input type="checkbox" name="host" class="hiddenCheckbox">
+          <span class="hostCheckmark"></span>
+          Do you want to be a host?
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="submit-container">
+        <button type="submit" class="signupSubmit">Sign Up</button>  
+      </div>
+    </section>
+  </form>
+
+  <!-- Modal Popup -->
+  <section class="error-msg" id="errorModal" style="display: none;">
+    <div class="error-content">
+      <div id="xBtn">
+        <span class="close-btn" id="closeModal">X</span> 
+      </div>
+      <div id="pMsg">
+        <p>Details already in system.</p>    
+      </div>
+    </div>
+  </section>
+
+  <section class="dataMatch" id="errorMatch" style="display: none;">
+    <div class="error-content">
+      <div id="xBtn">
+        <span class="close-btn" id="closeModal">X</span> 
+      </div>
+      <div id="pMsg">
+        <p>Field can't be empty.</p>    
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
